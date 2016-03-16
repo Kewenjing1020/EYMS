@@ -1,4 +1,4 @@
-package Part1;
+package part1;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
- 
+
 /**
  * This class is a utility class for performing the serialization and
  * deserialization operations provided the required information.
@@ -15,7 +15,6 @@ import java.io.ObjectOutputStream;
  *
  */
 public class Serializer {
- 
     /**
      * deserialize to Object from given file. We use the general Object so as
      * that it can work for any Java Class.
@@ -41,7 +40,4 @@ public class Serializer {
         oos.writeObject(obj);
         oos.close();
     }
-    
-    
-    
 }

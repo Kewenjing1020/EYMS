@@ -1,35 +1,32 @@
-package Part1;
+package part1;
 
 import java.io.IOException;
 
 public class SerializerTest {
 
 	public static void main(String[] args) {
-		
-		Client client=new Client();
-		client.setFirst_name("ke");
-		client.setLast_name("wen");
-		String username="cend";
-		client.setUsername(username);
+		Client a=new Client();
+		a.setUser_name("cend");
+		a.setPassword("12345");
+		a.setFirst_name("KE");
+		a.setLast_name("wen");
 		
 		try {
-	            /**
-	             *  Serializing the object
-	             */
-	            Serializer.serialize(client, username+".txt");
-	 
-	            /**
-	             * Deserializing the object
-	             */
-	            Client newClient = (Client) Serializer.deserialize(username+".txt");
-	            String[] info=newClient.toString().split("[;]+");
-	            System.out.println(newClient);
-	            System.out.println(info[1]);
-	 
-	        } catch (IOException | ClassNotFoundException e) {
-	            e.printStackTrace();
-	        }
-
+            /**
+             *  Serializing the object
+             */
+            Serializer.serialize(a, "serialization.txt");
+ 
+            /**
+             * Deserializing the object
+             */
+            Client newUser = (Client) Serializer.deserialize("serialization.txt");
+            System.out.println(newUser.toString());
+ 
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+		
 	}
 
 }

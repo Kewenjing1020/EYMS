@@ -1,4 +1,5 @@
-package Part1;
+package part1;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,14 +9,13 @@ public class ClientTest {
 
 	public static void main(String [] args) throws IOException{
 		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
-
 		
 		/*
 		 * step 1: login/register
 		 */
 		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
 
-		String answer1 = typein.readLine();
+		String answer = typein.readLine();
 		String user_name = null;
 		String password = null;
 		
@@ -23,33 +23,53 @@ public class ClientTest {
 		 * Register a new user
 		 */
 		
-		if(answer1.equals("n")||answer1.equals("N")){		
+		if(answer.equals("n")||answer.equals("N")){		
 			System.out.println("The register will need your personal contact information");
 			
 			System.out.println("please type in your user-name");
-			String nov_username = typein.readLine();
+			user_name = typein.readLine();
 			
 			//traverse to make sure this username was never used
 			//read(user_name.txt) then establish a hashmap<username,password> or a table "String[] username"
 			//while(user_hashmap.find(username)){
-			while(nov_username.equals("a")){
+			while(user_name.equals("a")){
 				System.out.println("this username is already registed");
 				System.out.println("please type in your user-name");
-				nov_username = typein.readLine();
+				user_name = typein.readLine();
 			}
 			
+			System.out.println("plese set your password:(the password can include letters and Numbers only)");
+			String new_password=typein.readLine();
 			System.out.println("please type in your first-name");
-			String nov_firstname=typein.readLine();
+			String firstname=typein.readLine();
 			System.out.println("please type in your last-name");
-			String nov_lastname=typein.readLine();
-			System.out.println("your e-mail+phone number+adress");
+			String lastname=typein.readLine();
+			Client customer=new Client(user_name,new_password,firstname, lastname);
 			
-			//to complete
+			System.out.println("your e-mail");
+			String email=typein.readLine();
+			customer.add_email(email);
+			System.out.println("your phone number");
+			String phone_number=typein.readLine();
+			customer.add_phone_number(phone_number);
+			System.out.println("your address");
+			String address=typein.readLine();
+			customer.add_address(address);
+			System.out.println("do you want receive general and/or person"
+					+ "alized (birthday special o↵ers, new meals alert, ...) promotions");
+			String ans=typein.readLine();
+			if(ans.equals("y")||ans.equals("Y")){
+				customer.setAuthorization(true);
+			}
+		
+			//verify information
+			System.out.println(customer);
+			
+			Serializer.serialize(customer, "/Users/kewenjing/Desktop/EYMS/Client_database/"+user_name+".txt");
 			
 			//to store the info
 			//register(nov_username, nov_first_name, nov_last_name,);
-			user_name=nov_username;
-			//password=this_password;
+			
 			
 		}
 		
@@ -57,15 +77,29 @@ public class ClientTest {
 		 * login user
 		 */
 		
-		if(answer1.equals("y")||answer1.equals("Y")){			
+		if(answer.equals("y")||answer.equals("Y")){			
 			System.out.println("login in");
-			System.out.println("username");
+			System.out.println("username:");
+			user_name=typein.readLine();
 			System.out.println("password");
-			String ans2=typein.readLine();
-			//search for the concerning file
+			password=typein.readLine();
+			
+			Client thisCustomer=new Client();
+			try {
+				thisCustomer = (Client) Serializer.deserialize( 
+						"/Users/kewenjing/Desktop/EYMS/Client_database/"+user_name+".txt");
+				
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			//verify if the password is correct
-
+			
+			String true_password=thisCustomer.getPassword();
+			if(true_password.equals(password)){
+				System.out.println("welcome back!" +user_name);
+				}
 		}
 		
 		//finish the login
