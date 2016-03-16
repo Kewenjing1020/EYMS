@@ -8,7 +8,9 @@ import java.io.InputStreamReader;
 public class ClientTest {
 
 	public static void main(String [] args) throws IOException{
+		
 		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
+		Client thisCustomer=new Client();
 		
 		/*
 		 * step 1: login/register
@@ -84,7 +86,7 @@ public class ClientTest {
 			System.out.println("password");
 			password=typein.readLine();
 			
-			Client thisCustomer=new Client();
+			
 			try {
 				thisCustomer = (Client) Serializer.deserialize( 
 						"/Users/kewenjing/Desktop/EYMS/Client_database/"+user_name+".txt");
@@ -111,9 +113,9 @@ public class ClientTest {
 		
 		//propose the available meals
 		System.out.println("list of your favorite meals");
-		System.out.println();
-		
+		System.out.println(thisCustomer.getFavorite_meals());
 		//choose from his favorite list
+		
 		
 		//choose a restaurant
 		
