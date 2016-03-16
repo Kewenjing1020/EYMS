@@ -2,7 +2,8 @@ package wenjing.lucas.Part1.EYMS.src.Part1;
 
 import java.util.ArrayList;
 
-import fr.EYMS.wenjing.lucas.operation.Login;
+import User.Login;
+
 
 public abstract class User {
 

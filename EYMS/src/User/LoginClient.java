@@ -1,5 +1,7 @@
 package User;
 
+import wenjing.lucas.Part1.EYMS.src.Part1.Restaurant;
+
 public class LoginClient implements Login{
 
 	@Override

@@ -2,8 +2,8 @@ package wenjing.lucas.Part1.EYMS.src.Part1;
 
 import java.util.ArrayList;
 
-import fr.EYMS.wenjing.lucas.operation.Identification;
-import fr.EYMS.wenjing.lucas.operation.RestoIdentification;
+import Restaurant.Identification;
+import Restaurant.RestoIdentification;
 
 public class Restaurant {
 	

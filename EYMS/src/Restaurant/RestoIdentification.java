@@ -1,7 +1,6 @@
 package Restaurant;
 
-import Part1.Restaurant;
-import Part1.User;
+import User.User;
 
 public class RestoIdentification implements Identification {
 
@@ -11,7 +10,7 @@ public class RestoIdentification implements Identification {
 		//We test all the username and password of the user of the restaurant
 		//until there is a match
 		//otherwise we fail to identify the user
-		for (User u: resto.getUsers())
+		for(User u: resto.getUsers())
 		{
 			if (u.getUsername().equals(username) && u.getPassword().equals(password)){
 				res = true;
@@ -28,6 +27,8 @@ public class RestoIdentification implements Identification {
 		//true if identified false otherwise
 		return res;
 	}
+
+
 
 	
 }

@@ -2,8 +2,7 @@ package Restaurant;
 
 import java.util.ArrayList;
 
-import fr.EYMS.wenjing.lucas.operation.Identification;
-import fr.EYMS.wenjing.lucas.operation.RestoIdentification;
+import User.User;
 
 public class Restaurant {
 	
@@ -14,7 +13,7 @@ public class Restaurant {
 	private ArrayList<User> users;
 	private ArrayList<Ingredient> ingredients;
 	private ArrayList<Meal> meals;
-	protected Part1.RestoIdentification identification = new RestoIdentification();
+	protected RestoIdentification identification = new RestoIdentification();
 	
 	/*
 	 * Getters and Setters
@@ -40,10 +39,13 @@ public class Restaurant {
 	}
 	
 	
-	/*
+
+	/**
 	 * Constructor
+	 * @param users
+	 * @param ingredients
+	 * @param meals
 	 */
-	
 	public Restaurant(ArrayList<User> users, ArrayList<Ingredient> ingredients, ArrayList<Meal> meals) {
 		super();
 		this.users = users;

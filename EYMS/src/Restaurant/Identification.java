@@ -1,6 +1,4 @@
-package fr.EYMS.wenjing.lucas.operation;
-
-import wenjing.lucas.Part1.EYMS.src.Part1.Restaurant;
+package Restaurant;
 
 public interface Identification {
 
