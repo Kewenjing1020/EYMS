@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class Meal {
 	protected String dish_name;
-	protected ArrayList<String> ingredients_names;
-	protected ArrayList<Float> ingredient_qty;
+	protected ArrayList<Ingredient> ingredients;
 	protected double price;
 	//number of points that you get when you order the meal
 	protected int points;
@@ -19,18 +18,7 @@ public class Meal {
 	public String getDish_name() {
 		return dish_name;
 	}
-	public ArrayList<String> getIngredients_names() {
-		return ingredients_names;
-	}
-	public void setIngredients_names(ArrayList<String> ingredients_names) {
-		this.ingredients_names = ingredients_names;
-	}
-	public ArrayList<Float> getIngredient_qty() {
-		return ingredient_qty;
-	}
-	public void setIngredient_qty(ArrayList<Float> ingredient_qty) {
-		this.ingredient_qty = ingredient_qty;
-	}
+
 	public int getPoints() {
 		return points;
 	}

@@ -6,7 +6,7 @@ public class Order extends Meal{
 	
 	public ArrayList<Meal> dish;
 	private double total_price;
-	
+	private int total_points;
 	
 	
 	/**
@@ -22,6 +22,19 @@ public class Order extends Meal{
 	public void add_meal(Meal dish_name){
 		 this.dish.add(dish_name);
 		 this.total_price+= dish_name.price;
+		 this.total_points=dish_name.points;
+		 
+	}
+
+
+	
+	public int getTotal_points() {
+		return total_points;
+	}
+
+
+	public void setTotal_points(int total_points) {
+		this.total_points = total_points;
 	}
 
 

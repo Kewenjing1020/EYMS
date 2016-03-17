@@ -9,7 +9,7 @@ public class Restaurant {
 	/*
 	 * Attributes
 	 */
-	
+	private String Resto_name;
 	private ArrayList<User> users;
 	private ArrayList<Ingredient> ingredients;
 	private ArrayList<Meal> meals;
@@ -21,6 +21,12 @@ public class Restaurant {
 	
 	public ArrayList<User> getUsers() {
 		return users;
+	}
+	public String getResto_name() {
+		return Resto_name;
+	}
+	public void setResto_name(String resto_name) {
+		Resto_name = resto_name;
 	}
 	public void setUsers(ArrayList<User> users) {
 		this.users = users;
@@ -38,8 +44,22 @@ public class Restaurant {
 		this.meals = meals;
 	}
 	
-	
 
+	/**
+	 * @param resto_name
+	 * @param users
+	 * @param ingredients
+	 * @param meals
+	 */
+	public Restaurant(String resto_name, ArrayList<User> users, ArrayList<Ingredient> ingredients,
+			ArrayList<Meal> meals) {
+		super();
+		Resto_name = resto_name;
+		this.users = users;
+		this.ingredients = ingredients;
+		this.meals = meals;
+	}
+	
 	/**
 	 * Constructor
 	 * @param users

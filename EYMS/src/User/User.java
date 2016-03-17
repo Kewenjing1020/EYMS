@@ -15,7 +15,17 @@ public abstract class User {
 	protected String first_name;
 	protected String last_name;
 	protected String password;
-	protected Login login;
+	//protected Login login;
+	
+	/**
+	 * @param username
+	 * @param password
+	 */
+	public User(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	
 	/**
 	 * Getters and Setters
@@ -23,6 +33,7 @@ public abstract class User {
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
