@@ -1,14 +1,10 @@
 package wenjing.lucas.Part1.EYMS.src.Part1;
 
-import java.io.IOException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import DataBase.DataClient;
-import DataBase.DataManage;
-import DataBase.Serializer;
-
-public class Client implements DataManage, Serializable {
+public class Client implements Serializable {
 	
 	private static final long serialVersionUID = -55857686305273843L;
 	
@@ -201,68 +197,18 @@ public class Client implements DataManage, Serializable {
 	}
 
 
-	/**
-	 * write client to database
-	 * @param client
-	 */
-	public void writeUser() {
-		// TODO Auto-generated method stub
-		//String filePath="/Users/kewenjing/Desktop/EYMS/";
-		String fileName= this.getUser_name();
-		try {
-	        /**
-	         *  Serializing the object
-	         */
-	        Serializer.serialize(this, filePath+fileName+".txt");
-	        System.out.println("Registration successful！ ");
-	        System.out.println("WELCOME!"+this.user_name);
-	        /**
-	         * Deserializing the object
-	         */
-//	        Client newUser = (Client) Serializer.deserialize(filePath+fileName+".txt");
-//	        
-//	        System.out.println(newUser);
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
 
-
-	public void Login(Client client, String username, String password) {
-		// TODO Auto-generated method stub
-		
-		try {
-            /**
-             * Deserializing the object
-             */
-			client = (Client) Serializer.deserialize(filePath+username+".txt");
-			
- 
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+	public ArrayList<String> getContacter_names() {
+		return contacter_names;
 	}
 
 
 
-	public void identification() {
-		// TODO Auto-generated method stub
-		
+	public void setContacter_names(ArrayList<String> contacter_names) {
+		this.contacter_names = contacter_names;
 	}
 
 
-
-	public void readUser() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void Login() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	
 }

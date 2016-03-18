@@ -2,11 +2,14 @@ package DataBase;
 
 import java.io.IOException;
 
+
 import wenjing.lucas.Part1.EYMS.src.Part1.Client;
 
 public class SerializerTest {
 
 	public static void main(String[] args) {
+		
+		
 		
 		Client client=new Client();
 		client.setFirst_name("ke");
@@ -31,6 +34,7 @@ public class SerializerTest {
 	        } catch (IOException | ClassNotFoundException e) {
 	            e.printStackTrace();
 	        }
+
 
 	}
 
