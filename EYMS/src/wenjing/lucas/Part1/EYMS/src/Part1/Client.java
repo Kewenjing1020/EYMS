@@ -1,11 +1,16 @@
 package wenjing.lucas.Part1.EYMS.src.Part1;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Client extends User implements Serializable {
+import DataBase.DataClient;
+import DataBase.DataManage;
+import DataBase.Serializer;
+
+public class Client implements DataManage, Serializable {
 	
-	 private static final long serialVersionUID = -55857686305273843L;
+	private static final long serialVersionUID = -55857686305273843L;
 	
 	private String user_name;
 	private String password;
@@ -15,7 +20,7 @@ public class Client extends User implements Serializable {
 	private Boolean authorization;
 	private String birthday;
 
-
+	private ArrayList<String> contacter_names;
 	private ArrayList<String> email;
 	private ArrayList<String> phone_number;
 	private ArrayList<String> address;
@@ -72,6 +77,9 @@ public class Client extends User implements Serializable {
 		this.address = new ArrayList<String>();
 		this.points=0;
 		this.authorization=false;
+		this.contacter_names=new ArrayList<String>();
+		contacter_names.add(last_name+" "+first_name);
+		
 	}
 	
 	/**
@@ -94,6 +102,7 @@ public class Client extends User implements Serializable {
 	public void add_favorite_meal(Meal meal){
 		this.favorite_meals.add(meal);
 	}
+	
 
 	public String getUser_name() {
 		return user_name;
@@ -177,6 +186,83 @@ public class Client extends User implements Serializable {
 
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
+	}
+
+
+
+	public ArrayList<String> getGuest_names() {
+		return contacter_names;
+	}
+
+
+
+	public void setGuest_names(ArrayList<String> guest_names) {
+		this.contacter_names = guest_names;
+	}
+
+
+	/**
+	 * write client to database
+	 * @param client
+	 */
+	public void writeUser() {
+		// TODO Auto-generated method stub
+		//String filePath="/Users/kewenjing/Desktop/EYMS/";
+		String fileName= this.getUser_name();
+		try {
+	        /**
+	         *  Serializing the object
+	         */
+	        Serializer.serialize(this, filePath+fileName+".txt");
+	        System.out.println("Registration successful！ ");
+	        System.out.println("WELCOME!"+this.user_name);
+	        /**
+	         * Deserializing the object
+	         */
+//	        Client newUser = (Client) Serializer.deserialize(filePath+fileName+".txt");
+//	        
+//	        System.out.println(newUser);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+
+	public void Login(Client client, String username, String password) {
+		// TODO Auto-generated method stub
+		
+		try {
+            /**
+             * Deserializing the object
+             */
+			client = (Client) Serializer.deserialize(filePath+username+".txt");
+			
+ 
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+	}
+
+
+
+	public void identification() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void readUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void Login() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

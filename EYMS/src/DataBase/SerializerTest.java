@@ -12,7 +12,7 @@ public class SerializerTest {
 		client.setFirst_name("ke");
 		client.setLast_name("wen");
 		String username="cend";
-		client.setUsername(username);
+		client.setUser_name(username);
 		
 		try {
 	            /**
@@ -23,7 +23,7 @@ public class SerializerTest {
 	            /**
 	             * Deserializing the object
 	             */
-	            Client newClient = (Client) Serializer.deserialize(username+".txt");
+	            Client newClient = (Client) Serializer.deserialize("cend"+".txt");
 	            
 	            System.out.println(newClient);
 	          

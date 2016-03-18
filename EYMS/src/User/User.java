@@ -17,6 +17,7 @@ public abstract class User {
 	protected String password;
 	//protected Login login;
 	
+	
 	/**
 	 * @param username
 	 * @param password
@@ -26,6 +27,8 @@ public abstract class User {
 		this.username = username;
 		this.password = password;
 	}
+	
+	public abstract void writeUser();
 	
 	/**
 	 * Getters and Setters

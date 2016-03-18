@@ -22,12 +22,20 @@ public class Serializer {
      */
     public static Object deserialize(String fileName) throws IOException,
             ClassNotFoundException {
+    	Object obj = new Object();
+    	try{
         FileInputStream fis = new FileInputStream(fileName);
         BufferedInputStream bis = new BufferedInputStream(fis);
         ObjectInputStream ois = new ObjectInputStream(bis);
-        Object obj = ois.readObject();
+        obj = ois.readObject();
         ois.close();
+    	}
+    	catch(IOException | ClassNotFoundException e){
+    		System.out.println("you are not yet registered.");
+    	}
         return obj;
+        
+        
     }
  
     /**

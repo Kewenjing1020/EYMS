@@ -8,5 +8,9 @@ public abstract class Operation {
 	public abstract void Identification(User user);
 	public abstract void addUser();
 	public abstract void deleteUser();
+	public void Identification() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
