@@ -1,6 +1,8 @@
-package User;
+package EYMS.EYMS.src.User;
 
 import java.util.ArrayList;
+
+import EYMS.EYMS.src.Operation.Login;
 
 
 public abstract class User {
@@ -12,10 +14,10 @@ public abstract class User {
 	//allow to guaranty that password is unique for each User
 	protected static ArrayList<String> passwords;
 	protected String username;
-	protected String first_name;
-	protected String last_name;
+	protected String firstName;
+	protected String lastName;
 	protected String password;
-	//protected Login login;
+	protected Login login;
 	
 	
 	/**
@@ -30,6 +32,9 @@ public abstract class User {
 	
 	public abstract void writeUser();
 	
+	
+	
+	
 	/**
 	 * Getters and Setters
 	 */
@@ -40,17 +45,17 @@ public abstract class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String first_name) {
+		this.firstName = first_name;
 	}
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String last_name) {
+		this.lastName = last_name;
 	}
 	public String getPassword() {
 		return password;

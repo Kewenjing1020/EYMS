@@ -4,6 +4,8 @@ package wenjing.lucas.Part1.EYMS.src.Part1;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import Restaurant.Meal;
+
 public class Client implements Serializable {
 	
 	private static final long serialVersionUID = -55857686305273843L;
@@ -52,7 +54,15 @@ public class Client implements Serializable {
 		super();
 		this.user_name = user_name;
 		this.password = password;
-		
+//		this.first_name =first_name;
+//		this.last_name = last_name;
+		this.email = new ArrayList<String>();
+		this.phone_number = new ArrayList<String>();
+		this.address = new ArrayList<String>();
+		this.points=0;
+		this.authorization=false;
+		this.contacter_names=new ArrayList<String>();
+		contacter_names.add(last_name+" "+first_name);
 	}
 	
 	

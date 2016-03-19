@@ -1,8 +1,9 @@
-package Restaurant;
+package EYMS.EYMS.src.Restaurant;
 
 import java.util.ArrayList;
 
-import User.User;
+import EYMS.EYMS.src.User.User;
+
 
 public class Restaurant {
 	
