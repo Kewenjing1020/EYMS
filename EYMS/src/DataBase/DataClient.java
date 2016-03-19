@@ -5,19 +5,45 @@ import java.util.ArrayList;
 
 import wenjing.lucas.Part1.EYMS.src.Part1.Client;
 
+/**
+ * public static ArrayList<Client> Load_ClientData();
+ * public static ArrayList<Client> Log_ClientData(ArrayList<Client> clients);
+ * public static Boolean verify(ArrayList<Client> All_clients, String username);
+ * public static Client Login(ArrayList<Client> All_clients, String username, String password);
+ * public static void print_favoriteMeals(Client client);
+ * public static ArrayList<Client> refresh_clientdata(Client client, ArrayList<Client> All_clients);
+ * @author kewenjing
+ *
+ */
 public class DataClient{
 		
 	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
-	private ArrayList<Client> All_clients;
+	
+	public static void main(String [] args){
+		ArrayList<Client> clients=new ArrayList<Client>();
+		clients.add(new Client("emma","12345"));
+		clients.add(new Client("lily","34567"));
+		Log_ClientData(clients);
+		ArrayList<Client> clients2=new ArrayList<Client>();
+		clients2=Load_ClientData();
+		Client emma=clients2.get(0);
+		System.out.println(emma.getPassword());
+		emma=Login(clients,"emma","12345");
+		System.out.println(emma);
+		emma.add_phone_number("680962887");
+		//System.out.println(emma);
+		clients=refresh_clientdata(emma, clients);
+		System.out.println(clients);
+	}
 	
 	
 	
 	/**
-	 * load the client database, before all the operation
+	 * open the client database, load the All_client info, before all the operation
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Client> Load_ClientData(){
+	public static ArrayList<Client> Load_ClientData(){
 		ArrayList<Client> clients=new ArrayList<Client>();
 		//open the file, deserialize the client_data
 		try {
@@ -26,7 +52,7 @@ public class DataClient{
              * Deserializing the object
              */
             clients = (ArrayList<Client>) Serializer.deserialize(filePath+"Client_database.txt");
-            
+            System.out.println("succed in loading the new Al_client database");
             System.out.println(clients);
           
         } catch (IOException | ClassNotFoundException e) {
@@ -37,9 +63,13 @@ public class DataClient{
 	}
 	
 	
-	
-	
-	public ArrayList<Client> Log_ClientData(ArrayList<Client> clients){
+	/**
+	 * after all the operation
+	 * rewrite the All_client information into database
+	 * @param clients
+	 * @return
+	 */
+	public static ArrayList<Client> Log_ClientData(ArrayList<Client> clients){
 		//open the file, serialize the client_data
 		try {
             /**
@@ -47,12 +77,7 @@ public class DataClient{
              */
             Serializer.serialize(clients, filePath+"Client_database.txt");
             System.out.println("succed in loging the new Al_client database");
-            /**
-             * Deserializing the object
-             */
-//            Client newClient = (Client) Serializer.deserialize("cend"+".txt");
-//            
-//            System.out.println(newClient);
+            System.out.println(clients);
           
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,7 +93,7 @@ public class DataClient{
 	 * trasverse all the client.getusername
 	 * @param username
 	 */
-	public Boolean verify(ArrayList<Client> All_clients, String username){
+	public static Boolean verify(ArrayList<Client> All_clients, String username){
 		for(int i=0; i<All_clients.size();i++ ){
 			Client client=(Client)All_clients.get(i);
 			if(client.getUser_name().equals(username)){
@@ -83,12 +108,13 @@ public class DataClient{
 	
 	/**
 	 * traverse the All_clients,  to find this client
+	 * get this client's information
 	 * @param username
 	 * @param password
 	 * @return
 	 */
 	
-	public Client Login(String username, String password) {
+	public static Client Login(ArrayList<Client> All_clients, String username, String password) {
 		for(int i=0; i<All_clients.size();i++ ){
 			Client client=(Client)All_clients.get(i);
 			while(client.getUser_name().equals(username) && client.getPassword().equals(password)){
@@ -106,7 +132,7 @@ public class DataClient{
 	 * print this client's favorite meals
 	 * @param client
 	 */
-	public void print_favoriteMeals(Client client){
+	public static void print_favoriteMeals(Client client){
 		System.out.println(client.getFavorite_meals());
 	}
 	
@@ -119,7 +145,7 @@ public class DataClient{
 	 * @param All_clients
 	 * @return
 	 */
-	public ArrayList<Client> refresh_clientdata(Client client, ArrayList<Client> All_clients){
+	public static ArrayList<Client> refresh_clientdata(Client client, ArrayList<Client> All_clients){
 		for(int i=0; i<All_clients.size();i++ ){
 			Client client_old=(Client)All_clients.get(i);
 			while(client.getUser_name().equals(client_old.getUser_name()) && client.getPassword().equals(client_old.getPassword())){
