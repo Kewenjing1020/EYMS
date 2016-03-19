@@ -1,4 +1,4 @@
-package EYMS.EYMS.src.Restaurant;
+package Restaurant;
 
 import java.util.ArrayList;
 

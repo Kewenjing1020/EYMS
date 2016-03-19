@@ -1,5 +1,13 @@
-package EYMS.EYMS.src.FidelityCard;
+package FidelityCard;
 
-public class BasicFidelityCard {
+public class BasicFidelityCard extends FidelityCard{
+
+	@Override
+	public String toString() {
+		return "BasicFidelityCard";
+	}
+	
+	
+	
 
 }

@@ -1,12 +1,20 @@
-package EYMS.EYMS.src.Exceptions;
+package Exceptions;
 
-import EYMS.EYMS.src.Restaurant.Ingredient;
+import Restaurant.Ingredient;
+
+/**
+ * Exception allowing to raise error when it's is not possible to provide the Ingredient 
+ * or the Meal demanding by a Client for instance
+ * 
+ * @author Lucas
+ *
+ */
 
 public class RuptureDeStockIngredientException extends Exception {
 
 	public RuptureDeStockIngredientException(Ingredient ing, Float quantity){
-		System.out.println("L'ingredient: " + ing.getName() +  
-				"est en quantit�: " + ing.getStock() + " kg" +
-				"et vous en demandez: " + quantity + " kg.");
+		System.out.println("The ingredient: " + ing.getName() +  
+				"is in quantity: " + ing.getStock() + " kg" +
+				"and you demanded: " + quantity + " kg.");
 	}
 }

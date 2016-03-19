@@ -1,9 +1,8 @@
-package EYMS.EYMS.src.Operation;
+package Operation;
 
-import EYMS.EYMS.src.Restaurant.Restaurant;
-import EYMS.EYMS.src.User.User;
+import User.User;
 
-public interface Login {
+public interface Login{
 
-	public void login(Restaurant resto, User user);
+	public void login(User user);
 }

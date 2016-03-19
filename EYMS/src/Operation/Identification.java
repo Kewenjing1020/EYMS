@@ -1,6 +1,6 @@
-package EYMS.EYMS.src.Operation;
+package Operation;
 
-import EYMS.EYMS.src.Restaurant.Restaurant;
+import Restaurant.Restaurant;
 
 public interface Identification {
 

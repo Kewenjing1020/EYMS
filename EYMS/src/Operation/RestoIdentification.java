@@ -1,7 +1,7 @@
-package EYMS.EYMS.src.Operation;
+package Operation;
 
-import EYMS.EYMS.src.Restaurant.Restaurant;
-import EYMS.EYMS.src.User.*;
+import Restaurant.Restaurant;
+import User.*;
 
 public class RestoIdentification implements Identification {
 

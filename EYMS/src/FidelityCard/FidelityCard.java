@@ -1,10 +1,18 @@
-package EYMS.EYMS.src.FidelityCard;
+package FidelityCard;
 
-public abstract class FidelityCard {
+import java.io.Serializable;
+
+/**
+ * Abstract class for fidelity cards
+ * @author Lucas
+ *
+ */
+
+public abstract class FidelityCard implements Serializable {
 	
-	/**
-	 * Attributes
-	 */
-	protected int point;
+	
+	private static final long serialVersionUID = -8410502348215707271L;
+
+	
 
 }

@@ -1,6 +1,6 @@
 package Restaurant;
 
-import User.User;
+import User.*; 
 
 public class RestoIdentification implements Identification {
 
@@ -28,7 +28,9 @@ public class RestoIdentification implements Identification {
 		return res;
 	}
 
-
-
 	
 }
+
+
+
+

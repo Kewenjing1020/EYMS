@@ -1,6 +1,7 @@
-package EYMS.EYMS.src.Operation;
+package Operation;
 
-import EYMS.EYMS.src.User.User;
+import 
+User.User;
 
 public abstract class Operation {
 	

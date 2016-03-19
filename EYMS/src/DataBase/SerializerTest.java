@@ -1,17 +1,14 @@
 package DataBase;
 
-import java.io.IOException;
+import java.io.IOException;  
+import User.*;
 
-
-import wenjing.lucas.Part1.EYMS.src.Part1.Client;
 
 public class SerializerTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		
-		
-		
-		Client client=new Client();
+		Client client = new Client();
 		client.setFirst_name("ke");
 		client.setLast_name("wen");
 		String username="cend";

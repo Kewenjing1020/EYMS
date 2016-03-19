@@ -1,65 +1,80 @@
-package EYMS.EYMS.src.User;
+package User;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-import EYMS.EYMS.src.Operation.Login;
+import Operation.Login;
 
+/**
+ * Abstract class for User of Restaurant: Client and Personnel
+ * It allows to extend the project in a more flexible way using inheritance.
+ * 
+ * @author Lucas
+ *
+ */
 
-public abstract class User {
+public abstract class User implements Serializable{
 
+	private static final long serialVersionUID = 1329037479554738244L;
+	
 	/** 
 	 * Attributes
 	 */
 	
-	//allow to guaranty that password is unique for each User
-	protected static ArrayList<String> passwords;
-	protected String username;
-	protected String firstName;
-	protected String lastName;
-	protected String password;
+	protected String user_name = "";
+	protected String first_name = "";
+	protected String last_name = "";
+	protected String password = "";
+	//each user can have a specific method to connect
 	protected Login login;
+	
+	
+	/**
+	 * Method which allows an user to login
+	 */
+	public void tryLogin(){
+		login.login(this);
+	}
+	
 	
 	
 	/**
 	 * @param username
 	 * @param password
 	 */
+	
+	public User(){
+		
+	}
+	
 	public User(String username, String password) {
 		super();
-		this.username = username;
+		this.user_name = username;
 		this.password = password;
 	}
-<<<<<<< HEAD
+
 	
-	public abstract void writeUser();
-	
-	
-	
-	
-=======
-		
->>>>>>> b6920cf7f7bf793067aee35f60fa07e2ceff7d00
 	/**
 	 * Getters and Setters
 	 */
+	
 	public String getUsername() {
-		return username;
+		return user_name;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.user_name = username;
 	}
 	public String getFirstName() {
-		return firstName;
+		return first_name;
 	}
 	public void setFirstName(String first_name) {
-		this.firstName = first_name;
+		this.first_name = first_name;
 	}
 	public String getLastName() {
-		return lastName;
+		return last_name;
 	}
 	public void setLastName(String last_name) {
-		this.lastName = last_name;
+		this.last_name = last_name;
 	}
 	public String getPassword() {
 		return password;

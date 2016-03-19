@@ -1,4 +1,4 @@
-package EYMS.EYMS.src.Restaurant;
+package Restaurant;
 
 public enum Ingredient {
 
