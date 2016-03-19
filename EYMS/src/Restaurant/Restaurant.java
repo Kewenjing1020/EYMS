@@ -10,10 +10,12 @@ public class Restaurant {
 	 * Attributes
 	 */
 	private String Resto_name;
+	
 	private ArrayList<User> users;
 	private ArrayList<Ingredient> ingredients;
 	private ArrayList<Meal> meals;
 	protected RestoIdentification identification = new RestoIdentification();
+	
 	
 	/*
 	 * Getters and Setters

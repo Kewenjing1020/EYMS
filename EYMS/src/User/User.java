@@ -27,9 +27,7 @@ public abstract class User {
 		this.username = username;
 		this.password = password;
 	}
-	
-	public abstract void writeUser();
-	
+		
 	/**
 	 * Getters and Setters
 	 */

@@ -1,10 +1,10 @@
 package User;
 
-import wenjing.lucas.Part1.EYMS.src.Part1.Restaurant;
+
 
 public class LoginClient{
 
-	public void login(Restaurant resto, String username, String password) {
+	public void login(Restaurant.Restaurant resto, String username, String password) {
 		System.out.println("Hi I want to connect");
 		System.out.println("Please enter your username and your password:");
 		System.out.println("username: " + username);

@@ -1,4 +1,4 @@
-package wenjing.lucas.Part1.EYMS.src.Part1;
+package Restaurant;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,6 @@ public class Order extends Meal{
 	private double total_price;
 	private int total_points;
 	
-	
 	/**
 	 *constructor
 	 */
@@ -16,18 +15,21 @@ public class Order extends Meal{
 		super();
 		this.dish=new ArrayList<Meal>();
 		this.total_price = 0;
+		this.total_points=0;
 	}
 
 
 	public void add_meal(Meal dish_name){
 		 this.dish.add(dish_name);
 		 this.total_price+= dish_name.price;
-		 this.total_points=dish_name.points;
+		 this.total_points+=dish_name.points;
 		 
 	}
-
-
 	
+	public void delete_meal(Meal dish_name){
+		
+	}
+
 	public int getTotal_points() {
 		return total_points;
 	}
@@ -55,8 +57,7 @@ public class Order extends Meal{
 
 	public void setTotal_price(double total_price) {
 		this.total_price = total_price;
-	}
-	
+	}	
 
 
 }
