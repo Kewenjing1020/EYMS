@@ -20,7 +20,7 @@ import User.*;
  */
 public class DataClient{
 		
-	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
+	public static String filePath="C:/Users/Lucas/Documents/GitHub/EYMS";
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();

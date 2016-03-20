@@ -3,6 +3,7 @@ package User;
 import java.io.Serializable;
 
 import Operation.Login;
+import Operation.Register;
 
 /**
  * Abstract class for User of Restaurant: Client and Personnel
@@ -20,12 +21,14 @@ public abstract class User implements Serializable{
 	 * Attributes
 	 */
 	
-	protected String user_name;
-	protected String first_name;
-	protected String last_name;
-	protected String password ;
+	protected String user_name = " ";
+	protected String first_name = " ";
+	protected String last_name = " ";
+	protected String password = " ";
 	//each user can have a specific method to connect
 	protected Login login;
+	//each user have a specific method to register
+	protected Register register;
 	
 	
 	/**
@@ -35,6 +38,9 @@ public abstract class User implements Serializable{
 		login.login(this);
 	}
 	
+	public void register(){
+		register.register(this.getFirstName(), this.getLastName(), this.getUsername(), this.getPassword());
+	}
 	
 	
 	/**

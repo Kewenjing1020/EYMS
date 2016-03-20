@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import FidelityCard.BasicFidelityCard;
 import FidelityCard.FidelityCard;
 import Operation.LoginClient;
+import Operation.RegisterClient;
 import Restaurant.Meal;
 
 /**
@@ -27,8 +28,8 @@ public class Client extends User{
 	//I have suppressed the attribute point because it is include to fidelity card
 	//furthermore all client doesn't have point, only those you have the PointFidelityCard
 	//private int points;
-	private Boolean authorization;
-	private String birthday;
+	private Boolean authorization = false;
+	private String birthday = " ";
 	private FidelityCard fidelityCard;
 
 	private ArrayList<String> contacter_names;
@@ -59,6 +60,7 @@ public class Client extends User{
 		super();
 		this.authorization=false;
 		this.login = new LoginClient();
+		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
 	}
 
@@ -78,6 +80,7 @@ public class Client extends User{
 		this.authorization=false;
 		this.contacter_names=new ArrayList<String>();
 		this.login = new LoginClient();
+		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
 	}
 	
@@ -101,6 +104,7 @@ public class Client extends User{
 		this.contacter_names=new ArrayList<String>();
 		contacter_names.add(last_name+" "+first_name);
 		this.login = new LoginClient();
+		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
 		
 	}
