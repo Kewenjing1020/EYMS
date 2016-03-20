@@ -2,87 +2,78 @@ package Restaurant;
 
 import java.util.ArrayList;
 
-public class Order extends Meal{
+public class Order{
 	
-	public ArrayList<Meal> dish;
-	private ArrayList<Ingredient> local_ingredient;
-	private double total_price;
-	private int total_points;
+	private ArrayList<Meal> meal_list;
+	private Double tot_price;
+	//leave the message for the special demand of the meals
+	private String personalization;
+
+	
 	
 	/**
-	 *constructor
+	 * @param meal_list
+	 * @param tot_price
 	 */
 	public Order() {
 		super();
-		this.dish=new ArrayList<Meal>();
-		this.local_ingredient=new ArrayList<Ingredient>();
-		this.total_price = 0;
-		this.total_points=0;
+		this.meal_list = new ArrayList<Meal>();
+		this.tot_price=(double) 0;
+		this.personalization=null;
 	}
 
-
-	public ArrayList<Ingredient> getLocal_ingredient() {
-		return local_ingredient;
-	}
-
-
-	public void setLocal_ingredient(ArrayList<Ingredient> local_ingredient) {
-		this.local_ingredient = local_ingredient;
-	}
-
-
-	public void add_meal(Meal dish_name){
-		 this.dish.add(dish_name);
-		 this.total_price+= dish_name.price;
-		 this.total_points+=dish_name.points;
-		 if(dish_name.getIngredients() == null){
-			 break;
-		 }else if((dish_name.getIngredients()!= null){
-			 for(int i=0;i<dish_name.getIngredients().size();i++){
-				 for(int j=0; j<this.local_ingredient.size();j++){
-					 
-					 if(dish_name.getIngredients())
-				 }
-			 }
-		 }
-		 
+	public void add_meal(Meal e,int qty){
+		if (e.stock>=qty){
+			e.quantity=qty;
+			meal_list.add(e);
+			System.out.println(e.quantity+ " shares of in your cart now");
+		}
+		else if(e.stock==0){
+			System.out.println("this meal is sold out ");
+		}else{
+			System.out.println("there are "+ e.stock+"shares in stock, please change the quantity you need");
+		}
+		
 	}
 	
-	public void delete_meal(Meal dish_name){
-		for(int i=0; i<this.dish.size();i++){
-			if(this.dish.get(i).equals(dish_name))
-				this.dish.remove(i);
-		}		
+	public void remove_meal(Meal e){
+		meal_list.remove(e);
+	}
+	
+	public void check(){
+		for(Meal e:this.meal_list){
+			e.stock-=e.quantity;
+			this.tot_price+=e.price*e.quantity;
+		}
+	}
+	
+	
+	
+	//getter and setter
+	public ArrayList<Meal> getMeal_list() {
+		return meal_list;
 	}
 
-	public int getTotal_points() {
-		return total_points;
+	public void setMeal_list(ArrayList<Meal> meal_list) {
+		this.meal_list = meal_list;
 	}
 
-
-	public void setTotal_points(int total_points) {
-		this.total_points = total_points;
+	public Double getTot_price() {
+		return tot_price;
 	}
 
-
-	public ArrayList<Meal> getDish() {
-		return dish;
+	public void setTot_price(Double tot_price) {
+		this.tot_price = tot_price;
 	}
 
-
-	public void setDish(ArrayList<Meal> dish) {
-		this.dish = dish;
+	public String getPersonalization() {
+		return personalization;
 	}
 
-
-	public double getTotal_price() {
-		return total_price;
+	public void setPersonalization(String personalization) {
+		this.personalization = personalization;
 	}
 
-
-	public void setTotal_price(double total_price) {
-		this.total_price = total_price;
-	}	
-
-
+	
+	
 }
