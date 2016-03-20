@@ -1,10 +1,13 @@
 package Restaurant;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import Restaurant.Ingredient.food_material;
 
 public class Meal {
 	protected String dish_name;
-	protected ArrayList<Ingredient> ingredients;
+	protected Map<food_material,Float> ingredient_include;
 	protected double price;
 	//number of points that you get when you order the meal
 	protected int points;
@@ -18,7 +21,12 @@ public class Meal {
 	public String getDish_name() {
 		return dish_name;
 	}
-
+	public Map<food_material, Float> getIngredient_include() {
+		return ingredient_include;
+	}
+	public void setIngredient_include(Map<food_material, Float> ingredient_include) {
+		this.ingredient_include = ingredient_include;
+	}
 	public int getPoints() {
 		return points;
 	}
@@ -54,12 +62,15 @@ public class Meal {
 	public Meal(String dish_name, double price) {
 		super();
 		this.dish_name = dish_name;
+		this.ingredient_include=new HashMap<food_material,Float>();
 		this.price = price;
 		if(this.special_price!=-1){
 			this.price=special_price;
 		}
+		
 	}
 	
+
 	
 	
 

@@ -1,6 +1,6 @@
 package Restaurant;
 
-import wenjing.lucas.Part1.EYMS.src.Part1.Client;
+import Part1.Client;
 
 public interface Identification {
 

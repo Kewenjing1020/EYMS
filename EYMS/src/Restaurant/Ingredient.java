@@ -1,85 +1,77 @@
 package Restaurant;
 
-public enum Ingredient {
+public class Ingredient {
 
-	Salad("Salad",100f,1f),
-	Potatoes("Potatoes",100f,3f),
-	Bacon("Bacon",50f,8f),
-	Beaf("Beaf",50f,10f),
-	Ketchup("Ketchup",100f,2f),
-	Mustard("Mustard",100f,3f),
-	Onions("Onions",80f,2f),
-	Tomatoes("Tomatoes",100f,3f),
-	Bun("Bun",200f,5f);
+	public static void main(String [] args){
+		Ingredient mon_salad=new Ingredient(food_material.Salad,100f);
+		System.out.println(mon_salad);
+	}
 	
+	
+	@Override
+	public String toString() {
+		return "Ingredient stock \n [food_material" + name + ", price=" + price + "]";
+	}
+
+
+	public enum food_material{
+		Salad, Patato, Bacon, Beaf, Ketchup, Mustard, Onion, Tomato, Bun;
+	}
+		
 	
 	/**
 	 * Attributes
 	 */
 	
-	private String name;
+	private food_material name;
+	private Float price;
 	//ingredient includes the stock in kg available in a restaurant;
 	//as a result it will be possible to raise an error if stock are 
 	//not enough for the command of a client
-	private Float stock;
-	//Price for one kg
-	private Float price;
+	
+
 	
 	/**
 	 * Getters and Setters
 	 */
 	
-	public String getName() {
+	public food_material getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	//We use a synchronized method because several users can access 
-	//to stock at once
-	public synchronized Float getStock() {
-		return stock;
-	}
-	//We use a synchronized method because several users can access 
-	//to stock at once
-	public synchronized void setStock(Float stock) {
-		this.stock = stock;
-	}
+	
 	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(Float price) {
+
+	public synchronized void setPrice(Float price) {
 		this.price = price;
 	}
-	
-	/**
-	 * 
-	 * Constructor
+
+
+	/**constructor
+	 * @param name
+	 * @param price
 	 */
-	
-	Ingredient(String name, Float stock, Float price) {
+	public Ingredient(food_material name, Float price) {
+		super();
 		this.name = name;
-		this.stock = stock;
 		this.price = price;
 	}
+
+
 	
-	/**
-	 * Methods
-	 */
 	
-	//adding of a quantity of the ingredient
-	public synchronized void add(Float quantity){
-		stock += quantity;
-	}
 	
-	//removal of a quantity of the ingredient for example for a command
-	public synchronized void remove(Float quantity) 
-			throws RuptureDeStockIngredientException{
-		if(stock < quantity)
-			throw new RuptureDeStockIngredientException(this, quantity);
-		else{
-			stock -= quantity;
-		}
-	}
+
+	
+//	//removal of a quantity of the ingredient for example for a command
+//	public synchronized void remove(Float quantity) 
+//			throws RuptureDeStockIngredientException{
+//		if(stock < quantity)
+//			throw new RuptureDeStockIngredientException(this, quantity);
+//		else{
+//			stock -= quantity;
+//		}
+//	}
 	
 }

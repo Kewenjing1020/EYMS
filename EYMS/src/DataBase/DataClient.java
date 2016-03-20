@@ -3,7 +3,7 @@ package DataBase;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import wenjing.lucas.Part1.EYMS.src.Part1.Client;
+import Part1.Client;
 
 /**
  * public static ArrayList<Client> Load_ClientData();
@@ -32,7 +32,7 @@ public class DataClient{
 		System.out.println(emma);
 		emma.add_phone_number("680962887");
 		//System.out.println(emma);
-		clients=refresh_clientdata(emma, clients);
+		clients=refresh_Data(emma, clients);
 		System.out.println(clients);
 	}
 	
@@ -103,6 +103,20 @@ public class DataClient{
 		}
 		return true;
 	}
+	
+	
+	/**
+	 * Register a new user
+	 * Add this user in the database
+	 * @param All_clients
+	 * @param newclient
+	 * @return
+	 */
+	public static ArrayList<Client> Register(ArrayList<Client> All_clients, Client newclient){
+		All_clients.add(newclient);
+		return All_clients;
+		
+	}
 
 	
 	
@@ -145,10 +159,10 @@ public class DataClient{
 	 * @param All_clients
 	 * @return
 	 */
-	public static ArrayList<Client> refresh_clientdata(Client client, ArrayList<Client> All_clients){
+	public static ArrayList<Client> refresh_Data(Client client, ArrayList<Client> All_clients){
 		for(int i=0; i<All_clients.size();i++ ){
 			Client client_old=(Client)All_clients.get(i);
-			while(client.getUser_name().equals(client_old.getUser_name()) && client.getPassword().equals(client_old.getPassword())){
+			while(client.getUser_name().equals(client_old.getUser_name())){
 				
 				All_clients.set(i, client);
 				
