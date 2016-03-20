@@ -2,13 +2,15 @@ package Restaurant;
 
 import java.util.ArrayList;
 
+import Part1.Delivery;
+
 public class Order{
 	
 	private ArrayList<Meal> meal_list;
 	private Double tot_price;
 	//leave the message for the special demand of the meals
 	private String personalization;
-
+	private Delivery delivery_info;
 	
 	
 	/**
@@ -22,11 +24,25 @@ public class Order{
 		this.personalization=null;
 	}
 
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Order: \n meal_list=" + meal_list + "\n tot_price=" + tot_price + "\n personalization=" + personalization
+				+ "\n delivery_info=" + delivery_info + "";
+	}
+
+
+
+
 	public void add_meal(Meal e,int qty){
 		if (e.stock>=qty){
 			e.quantity=qty;
+			e.stock-=qty;
 			meal_list.add(e);
-			System.out.println(e.quantity+ " shares of in your cart now");
+			System.out.println(e.quantity+ " shares of "+ e.getDish_name()+" in your cart now");
+			
 		}
 		else if(e.stock==0){
 			System.out.println("this meal is sold out ");
@@ -38,13 +54,6 @@ public class Order{
 	
 	public void remove_meal(Meal e){
 		meal_list.remove(e);
-	}
-	
-	public void check(){
-		for(Meal e:this.meal_list){
-			e.stock-=e.quantity;
-			this.tot_price+=e.price*e.quantity;
-		}
 	}
 	
 	
@@ -63,7 +72,16 @@ public class Order{
 	}
 
 	public void setTot_price(Double tot_price) {
-		this.tot_price = tot_price;
+		
+		this.tot_price=tot_price;
+	}
+	
+	
+	public void check(){
+		for(int i=0;i<this.getMeal_list().size();i++){
+			Meal curr_meal=this.getMeal_list().get(i);
+			this.tot_price += curr_meal.getPrice()*curr_meal.quantity;	
+		}
 	}
 
 	public String getPersonalization() {
@@ -72,6 +90,14 @@ public class Order{
 
 	public void setPersonalization(String personalization) {
 		this.personalization = personalization;
+	}
+
+	public Delivery getDelivery_info() {
+		return delivery_info;
+	}
+
+	public void setDelivery_info(Delivery delivery_info) {
+		this.delivery_info = delivery_info;
 	}
 
 	
