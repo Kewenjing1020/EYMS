@@ -7,17 +7,14 @@ public class Ingredient {
 		System.out.println(mon_salad);
 	}
 	
-	
-	@Override
-	public String toString() {
-		return "Ingredient stock \n [food_material" + name + ", price=" + price + "]";
-	}
-
-
+	/**
+	 * define the choice of ingredient
+	 * @author kewenjing
+	 *
+	 */
 	public enum food_material{
 		Salad, Patato, Bacon, Beaf, Ketchup, Mustard, Onion, Tomato, Bun;
 	}
-		
 	
 	/**
 	 * Attributes
@@ -29,6 +26,21 @@ public class Ingredient {
 	//as a result it will be possible to raise an error if stock are 
 	//not enough for the command of a client
 	
+
+	/**constructor
+	 * @param name
+	 * @param price
+	 */
+	public Ingredient(food_material name, Float price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
+	
+	@Override
+	public String toString() {
+		return "Ingredient stock \n [food_material" + name + ", price=" + price + "]";
+	}
 
 	
 	/**
@@ -48,30 +60,5 @@ public class Ingredient {
 	}
 
 
-	/**constructor
-	 * @param name
-	 * @param price
-	 */
-	public Ingredient(food_material name, Float price) {
-		super();
-		this.name = name;
-		this.price = price;
-	}
-
-
-	
-	
-	
-
-	
-//	//removal of a quantity of the ingredient for example for a command
-//	public synchronized void remove(Float quantity) 
-//			throws RuptureDeStockIngredientException{
-//		if(stock < quantity)
-//			throw new RuptureDeStockIngredientException(this, quantity);
-//		else{
-//			stock -= quantity;
-//		}
-//	}
 	
 }

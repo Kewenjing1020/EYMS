@@ -8,18 +8,13 @@ import Restaurant.Personnel;
 import Restaurant.Restaurant;
 
 /**
- * public static ArrayList<Restaurant> Load_ClientData();
- * public static ArrayList<Restaurant> Log_ClientData(ArrayList<Restaurant> clients);
- * public static Boolean verify(ArrayList<Restaurant> All_clients, String username);
- * public static Client Login(ArrayList<Restaurant> All_clients, String username, String password);
- * public static void print_menu(Restaurant resto);
- * public static ArrayList<Restaurant> refresh_restodata(Client client, ArrayList<Client> All_clients);
+ * All the operation based on the Resto_database
  * @author kewenjing
  *
  */
 public class DataResto {
 	
-public static String filePath="/Users/kewenjing/Desktop/EYMS/";
+	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args){
 //		ArrayList<Client> clients=new ArrayList<Client>();
@@ -253,6 +248,5 @@ public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 		return All_Restaurants;
 	}
 
-	
 	
 }

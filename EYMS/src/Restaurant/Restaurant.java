@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import Restaurant.Ingredient.food_material;
+import Restaurant.Ingredient;
 
 
 public class Restaurant {
@@ -16,10 +16,11 @@ public class Restaurant {
 	private String Resto_name;
 	
 	private ArrayList<Personnel> users;
-	//set the stock of ingredient in the restaurant
-	private Map<food_material,Float> ingredient_stock;
-	//set the price of each ingredient
-	private Map<food_material,Float> ingredient_price;
+	
+	/**set the stock of ingredient in the restaurant
+	 * //HashMap<Ingredient(food_material,price), stock_quantity>
+	 */
+	private Map<Ingredient,Float> ingredient_stock;
 	private ArrayList<Meal> meals;
 	//protected RestoIdentification identification = new RestoIdentification();
 	
@@ -28,10 +29,10 @@ public class Restaurant {
 	 * Getters and Setters
 	 */
 	
-	public Map<food_material, Float> getIngredient_stock() {
+	public Map<Ingredient, Float> getIngredient_stock() {
 		return ingredient_stock;
 	}
-	public void setIngredient_stock(Map<food_material, Float> ingredient_stock) {
+	public void setIngredient_stock(Map<Ingredient, Float> ingredient_stock) {
 		this.ingredient_stock = ingredient_stock;
 	}
 	public ArrayList<Personnel> getUsers() {
@@ -53,12 +54,6 @@ public class Restaurant {
 	public void setMeals(ArrayList<Meal> meals) {
 		this.meals = meals;
 	}
-	public Map<food_material, Float> getIngredient_price() {
-		return ingredient_price;
-	}
-	public void setIngredient_price(Map<food_material, Float> ingredient_price) {
-		this.ingredient_price = ingredient_price;
-	}
 	
 	
 	/**constructor
@@ -67,8 +62,7 @@ public class Restaurant {
 	public Restaurant(String resto_name) {
 		super();
 		this.Resto_name = resto_name;
-		this.ingredient_stock=new HashMap<food_material,Float> ();
-		this.ingredient_price=new HashMap<food_material,Float> ();
+		this.ingredient_stock=new HashMap<Ingredient,Float> ();
 		this.meals=new ArrayList<Meal>();
 		
 	}
