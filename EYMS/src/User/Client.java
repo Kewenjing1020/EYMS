@@ -1,10 +1,12 @@
 package User;
 
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import FidelityCard.BasicFidelityCard;
 import FidelityCard.FidelityCard;
 import Operation.LoginClient;
+import Operation.Observable;
+import Operation.Observer;
 import Operation.RegisterClient;
 import Restaurant.Meal;
 
@@ -14,7 +16,7 @@ import Restaurant.Meal;
  *
  */
 
-public class Client extends User{
+public class Client extends User implements Observer{
 	
 
 	//private String user_name;
@@ -38,7 +40,14 @@ public class Client extends User{
 	private ArrayList<String> address;
 	private ArrayList<Meal> favorite_meals;
 	
-	
+	/**
+	 * 
+	 */
+	@Override
+	public void update(Observable o) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	/**
 	 * toString method
@@ -228,6 +237,14 @@ public class Client extends User{
 	public void setContacter_names(ArrayList<String> contacter_names) {
 		this.contacter_names = contacter_names;
 	}
+
+
+
+	
+
+
+
+	
 
 
 	

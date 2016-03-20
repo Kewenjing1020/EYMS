@@ -38,8 +38,12 @@ public abstract class User implements Serializable{
 		login.login(this);
 	}
 	
+	/**
+	 * Method which allows an user to register and add him to the DataBase
+	 */
 	public void register(){
-		register.register(this.getFirstName(), this.getLastName(), this.getUsername(), this.getPassword());
+		register.register(this.getFirstName(), this.getLastName(), 
+						  this.getUsername(), this.getPassword());
 	}
 	
 	
