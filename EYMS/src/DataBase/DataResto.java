@@ -1,9 +1,9 @@
 package DataBase;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 
+import Restaurant.Meal;
 import Restaurant.Personnel;
 import Restaurant.Restaurant;
 
@@ -16,9 +16,40 @@ public class DataResto {
 	
 	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
-	public static void main(String [] args){
-//		ArrayList<Client> clients=new ArrayList<Client>();
-//		clients.add(new Client("emma","12345"));
+	public static void main(String [] args) throws IOException{
+		Restaurant res1=new Restaurant("CHEZ LILY");
+		Restaurant res2=new Restaurant("Antony");
+		ArrayList<Restaurant> Restaurants=new ArrayList<Restaurant>();
+		Restaurants.add(res1);
+		Restaurants.add(res2);
+		System.out.println(Restaurants);
+		Log_RestoData(Restaurants);
+		
+		
+		//register a new personnel
+		Personnel chef=new Personnel("chef", "imchef");
+		verify(Restaurants,chef.getUsername() );
+		Register(Restaurants, "Antony",chef );
+		
+		//register a new restaurant	
+		verifyResto(Restaurants, "CHEZ LILY");
+		Restaurant res3=new Restaurant("WATHER");
+		RegisterResto(Restaurants, res3);
+		
+		Meal e=new Meal("snack","tomato",3.5);
+		res2.add_meal(e);
+		print_RestoInfo(res2);
+		
+		//Login a personnel
+		Login(Restaurants, "chef", "imchef");
+		
+		refresh_Data(res2, Restaurants);
+		
+		
+		
+//		ArrayList<Restaurant> Restaurants2=new ArrayList<Restaurant>();
+//		Load_RestoData();
+		
 //		clients.add(new Client("lily","34567"));
 //		Log_ClientData(clients);
 //		ArrayList<Client> clients2=new ArrayList<Client>();
@@ -34,7 +65,21 @@ public class DataResto {
 	}
 	
 	
-	
+
+
+
+	/**
+	 * register a new resto
+	 * @param restaurants
+	 * @param e
+	 */
+	private static void RegisterResto(ArrayList<Restaurant> restaurants, Restaurant e) {
+		// TODO Auto-generated method stub
+		restaurants.add(e);
+		
+	}
+
+
 	/**
 	 * open the Restaurant database, load the All_Restaurant info, before all the operation
 	 * @return
@@ -145,6 +190,10 @@ public class DataResto {
 		for(int i=0; i<All_Restaurants.size();i++ ){
 			Restaurant Restaurant=(Restaurant)All_Restaurants.get(i);
 			
+			if(Restaurant.getUsers()==null){
+				return true;
+			}
+			else{
 				for(int j=0; j< Restaurant.getUsers().size();j++){
 					if(Restaurant.getUsers().get(j).getUsername().equals(username))
 					{
@@ -152,6 +201,7 @@ public class DataResto {
 						return false;
 					}
 				}
+			}
 			
 		}
 		return true;
@@ -190,6 +240,7 @@ public class DataResto {
 	public static ArrayList<Restaurant> Register(ArrayList<Restaurant>  All_Restaurants,  String Resto_name, Personnel personnel){
 		Restaurant curr_resto=find_resto(All_Restaurants, Resto_name);
 		curr_resto.getUsers().add(personnel);
+		System.out.println("succed in registering!");
 		return All_Restaurants;
 		
 	}
@@ -244,7 +295,7 @@ public class DataResto {
 			}
 		
 		}
-		System.out.println("fail in load client's new info");
+		System.out.println("fail in load restaurant's new info");
 		return All_Restaurants;
 	}
 
