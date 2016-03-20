@@ -2,12 +2,6 @@ package Restaurant;
 
 import java.util.ArrayList;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import Restaurant.Ingredient;
-
-
 public class Restaurant {
 	
 	/*
@@ -20,7 +14,6 @@ public class Restaurant {
 	/**set the stock of ingredient in the restaurant
 	 * //HashMap<Ingredient(food_material,price), stock_quantity>
 	 */
-	private Map<Ingredient,Float> ingredient_stock;
 	private ArrayList<Meal> meals;
 	//protected RestoIdentification identification = new RestoIdentification();
 	
@@ -29,12 +22,7 @@ public class Restaurant {
 	 * Getters and Setters
 	 */
 	
-	public Map<Ingredient, Float> getIngredient_stock() {
-		return ingredient_stock;
-	}
-	public void setIngredient_stock(Map<Ingredient, Float> ingredient_stock) {
-		this.ingredient_stock = ingredient_stock;
-	}
+
 	public ArrayList<Personnel> getUsers() {
 		return users;
 	}
@@ -62,7 +50,6 @@ public class Restaurant {
 	public Restaurant(String resto_name) {
 		super();
 		this.Resto_name = resto_name;
-		this.ingredient_stock=new HashMap<Ingredient,Float> ();
 		this.meals=new ArrayList<Meal>();
 		
 	}
@@ -74,13 +61,4 @@ public class Restaurant {
 	}
 	
 	
-	/**
-	 * Methods
-	 */
-	
-//	public boolean identify(Restaurant resto, String username, String password){
-//		boolean res = identification.identify(resto, username, password);
-//		return res;
-//	}
-
 }
