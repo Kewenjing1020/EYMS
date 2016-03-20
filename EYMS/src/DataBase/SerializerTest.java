@@ -9,10 +9,10 @@ public class SerializerTest {
 	public static void main(String[] args) {	
 		
 		Client client = new Client();
-		client.setFirst_name("ke");
-		client.setLast_name("wen");
+		client.setFirstName("ke");
+		client.setLastName("wen");
 		String username="cend";
-		client.setUser_name(username);
+		client.setUsername(username);
 		
 		try {
 	            /**

@@ -1,8 +1,9 @@
 package Part1;
 
-import java.util.Arrays;
+import java.util.Arrays; 
 
 import Restaurant.Order;
+import User.Client;
 
 public class Delivery {
 	private Order order;
@@ -33,7 +34,7 @@ public class Delivery {
 	
 	@Override
 	public String toString() {
-		return "Delivery [order=" + order + ", client=" + client.getFirst_name()+" "+client.getLast_name() + ", delivery_info=" + Arrays.toString(delivery_info)
+		return "Delivery [order=" + order + ", client=" + client.getFirstName()+" "+client.getLastName() + ", delivery_info=" + Arrays.toString(delivery_info)
 				+ "]";
 	}
 

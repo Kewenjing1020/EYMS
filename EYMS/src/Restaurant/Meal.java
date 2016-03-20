@@ -4,7 +4,7 @@ public class Meal {
 	
 	
 	public static void main(String [] args){
-		Meal e=new Meal();
+		Meal e = new Meal();
 		e.setDish_name("Mixed garden salad");
 		e.setIngredient_detail("drizzled with your choice of our homemade dressing served with bread");
 		e.setPrice(2.2);
@@ -12,11 +12,11 @@ public class Meal {
 		e.setStock(100);
 		System.out.println(e);
 		
-		Meal e1=new Meal("Spaghetti Bolognese"," with a lean meat sauce accompanied by grated parmesan cheese",3.2);
+		Meal e1 = new Meal("Spaghetti Bolognese"," with a lean meat sauce accompanied by grated parmesan cheese",3.2);
 		System.out.println(e1.getPrice());
 		
 		
-		Meal e2=new Meal();
+		Meal e2 = new Meal();
 		e2.setDish_name("Salmon Steak");
 		e2.setIngredient_detail("baked with lemon grass herb butter and tomato-mussel coulis");
 		e2.setPrice(5.0);
@@ -72,10 +72,11 @@ public class Meal {
 	protected Integer stock;
 	protected Integer quantity;
 	/**
+	 * @param price 
 	 * @param dish_name
 	 * @param ingredient_detail
 	 */
-	public Meal() {
+	public Meal(Double price) {
 		super();
 		this.price = price;
 		this.quantity = 1;
@@ -100,6 +101,14 @@ public class Meal {
 		this.special_price=(double) -1;
 	}
 	
+public Meal() {
+		this.special_price=(double) -1;
+	}
+
+
+
+
+
 //	public void add_to_cart(int qty){
 //		this.quantity=qty;
 //	}
