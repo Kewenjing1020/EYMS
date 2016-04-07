@@ -21,7 +21,7 @@ public class LoginClient implements Login, Serializable{
 		System.out.println("Please enter your username and your password:");
 		System.out.println("username: " + user.getUsername());
 		System.out.println("password: " + user.getPassword());
-		DataClient.tryLogin(user.getUsername(), user.getPassword());
+		DataClient.login(user.getUsername(), user.getPassword());
 		
 	}
 

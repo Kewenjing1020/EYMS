@@ -1,7 +1,18 @@
 package Restaurant;
 
-public class Personnel {
+import java.io.Serializable;
 
+/**
+ * 
+ * @author kewenjing
+ *
+ */
+public class Personnel implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/** 
 	 * Attributes
 	 */
@@ -49,6 +60,12 @@ public class Personnel {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Personnel [username=" + username + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
+				+ password + "]";
 	}
 
 }

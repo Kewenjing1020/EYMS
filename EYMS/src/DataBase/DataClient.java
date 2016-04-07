@@ -1,5 +1,6 @@
 package DataBase;
 
+import java.io.File;
 import java.io.IOException; 
 
 import java.util.ArrayList;
@@ -77,6 +78,7 @@ public class DataClient{
             /**
              *  Serializing the object
              */
+			new File(filePath+"Client_database.txt").delete();
             Serializer.serialize(clients, filePath+"Client_database.txt");
             System.out.println("succed in loging the new All_clients database");
             System.out.println(clients);
@@ -135,7 +137,7 @@ public class DataClient{
 	 * @return
 	 */
 	
-	public static void tryLogin(String username, String password) {
+	public static void login(String username, String password) {
 		ArrayList<Client> all_clients = DataClient.Load_ClientData();
 		try {
 			DataClient.tryLogin(all_clients, username, password);

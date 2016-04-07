@@ -3,6 +3,11 @@ package Restaurant;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author kewenjing
+ *
+ */
 public class Restaurant implements Serializable{
 	
 	/**
@@ -67,7 +72,8 @@ public class Restaurant implements Serializable{
 		this.users=new ArrayList<Personnel>();
 	}
 	
-	public void add_meal(Meal e){
+	
+	public void createMeal(Meal e){
 		int count=0;
 		for(int i=0; i<this.getMeals().size();i++){
 			if(this.getMeals().get(i).getDish_name().equals(e.getDish_name())){
@@ -83,6 +89,4 @@ public class Restaurant implements Serializable{
 			System.out.println("succed in add this meal");
 		}
 	}
-	
-	
 }
