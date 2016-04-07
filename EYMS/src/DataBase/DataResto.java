@@ -12,9 +12,9 @@ import Restaurant.Restaurant;
  * @author kewenjing
  *
  */
-public class DataResto{
+public class DataResto {
 	
-	public static String filePath="C:/Users/Lucas/Documents/GitHub/EYMS/EYMS";
+	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args) throws IOException{
 		Restaurant res1=new Restaurant("CHEZ LILY");

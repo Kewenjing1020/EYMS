@@ -1,10 +1,11 @@
 package User;
 
 
-import java.util.ArrayList;  
+import java.util.ArrayList; 
 import FidelityCard.BasicFidelityCard;
 import FidelityCard.FidelityCard;
 import Operation.LoginClient;
+import Operation.Observable;
 import Operation.Observer;
 import Operation.RegisterClient;
 import Restaurant.Meal;
@@ -34,46 +35,19 @@ public class Client extends User implements Observer{
 	private FidelityCard fidelityCard;
 
 	private ArrayList<String> contacter_names;
-	private ArrayList<String> email = null;
-	private ArrayList<String> phone_number = null;
-	private ArrayList<String> address = null;
+	private ArrayList<String> email;
+	private ArrayList<String> phone_number;
+	private ArrayList<String> address;
 	private ArrayList<Meal> favorite_meals;
 	
-
 	/**
-	 * Update method allowing to receive special offers if authorization is true.
+	 * 
 	 */
 	@Override
-	public void update(ArrayList<String> messages) {
-		try{
-			for(String message : messages){
-				email.add(message);
-			}
-		}
-		catch(NullPointerException e){
-			System.out.println(this.getUsername() 
-					+ "doesn't want to receive offer in his email.");
-		}
-		try{
-			for(String message : messages){
-				phone_number.add(message);
-			}
-		}
-		catch(NullPointerException e){
-			System.out.println(this.getUsername() 
-					+ "doesn't want to receive offer in his phone.");
-		}
-		try{
-			for(String message : messages){
-				address.add(message);
-			}
-		}
-		catch(NullPointerException e){
-			System.out.println(this.getUsername() 
-					+ "doesn't want to receive offer in his postbox.");
-		}
+	public void update(Observable o) {
+		// TODO Auto-generated method stub
+		
 	}
-	
 	
 	/**
 	 * toString method
@@ -165,6 +139,31 @@ public class Client extends User implements Observer{
 		this.favorite_meals.add(meal);
 	}
 	
+
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getFirst_name() {
+		return first_name;
+	}
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+	public String getLast_name() {
+		return last_name;
+	}
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
 	public ArrayList<String> getEmail() {
 		return email;
 	}
@@ -238,10 +237,6 @@ public class Client extends User implements Observer{
 	public void setContacter_names(ArrayList<String> contacter_names) {
 		this.contacter_names = contacter_names;
 	}
-
-
-
-
 
 
 
