@@ -2,6 +2,7 @@ package Test;
 
 import java.util.ArrayList;
 
+
 import DataBase.DataClient;
 import Exceptions.ClientNotFound;
 import User.Client;
@@ -34,8 +35,11 @@ public class TestDataClient {
 		
 		emma.tryLogin();
 		Client adrien = new Client("adrien","04538","Adrien","Michel");
+		clients.add(adrien);
 		System.out.println(adrien);
 		adrien.register();
 		adrien.tryLogin();
+		adrien.add_address("centrale paris");
+		DataClient.Log_ClientData(clients);
 	}
 }

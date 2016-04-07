@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import DataBase.Serializer;
+import User.Client;
 
 public class ClientTest {
 

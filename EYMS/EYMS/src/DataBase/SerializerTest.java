@@ -3,7 +3,11 @@ package DataBase;
 import java.io.IOException;  
 import User.*;
 
-
+/**
+ * to test Serializer
+ * @author kewenjing
+ *
+ */
 public class SerializerTest {
 
 	public static void main(String[] args) {	

@@ -1,6 +1,8 @@
 package FidelityCard;
 
-public class LotteryFidelityCard extends FidelityCard{
+import Restaurant.Meal;
+
+public class LotteryFidelityCard extends FidelityCardVisitor{
 
 
 	/**
@@ -13,5 +15,8 @@ public class LotteryFidelityCard extends FidelityCard{
 		return "LotteryFidelityCard";
 	}
 	
-
+	@Override
+	public Double getPriceVisit(Meal meal) {
+		return meal.getPrice();
+	}
 }

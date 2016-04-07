@@ -1,10 +1,6 @@
 package DataBase;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import Restaurant.Meal;
@@ -16,9 +12,9 @@ import Restaurant.Restaurant;
  * @author kewenjing
  *
  */
-public class DataResto {
+public class DataResto{
 	
-	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
+	public static String filePath="C:/Users/Lucas/Documents/GitHub/EYMS/EYMS";
 	
 	public static void main(String [] args) throws IOException{
 		Restaurant res1=new Restaurant("CHEZ LILY");
@@ -41,15 +37,31 @@ public class DataResto {
 		RegisterResto(Restaurants, res3);
 		
 		Meal e=new Meal("snack","tomato",3.5);
-		res2.createMeal(e);
+		res2.add_meal(e);
 		print_RestoInfo(res2);
 		
 		//Login a personnel
 		Login(Restaurants, "chef", "imchef");
 		
 		refresh_Data(res2, Restaurants);
-		Log_RestoData(Restaurants);
 		
+		
+		
+//		ArrayList<Restaurant> Restaurants2=new ArrayList<Restaurant>();
+//		Load_RestoData();
+		
+//		clients.add(new Client("lily","34567"));
+//		Log_ClientData(clients);
+//		ArrayList<Client> clients2=new ArrayList<Client>();
+//		clients2=Load_ClientData();
+//		Client emma=clients2.get(0);
+//		System.out.println(emma.getPassword());
+//		emma=Login(clients,"emma","12345");
+//		System.out.println(emma);
+//		emma.add_phone_number("680962887");
+//		//System.out.println(emma);
+//		clients=refresh_clientdata(emma, clients);
+//		System.out.println(clients);
 	}
 	
 	
@@ -61,7 +73,7 @@ public class DataResto {
 	 * @param restaurants
 	 * @param e
 	 */
-	public static void RegisterResto(ArrayList<Restaurant> restaurants, Restaurant e) {
+	private static void RegisterResto(ArrayList<Restaurant> restaurants, Restaurant e) {
 		// TODO Auto-generated method stub
 		restaurants.add(e);
 		
@@ -82,7 +94,7 @@ public class DataResto {
              * Deserializing the object
              */
             all_Resto = (ArrayList<Restaurant>) Serializer.deserialize(filePath+"Restaurant_database.txt");
-            System.out.println("succed in loading the new All_resto database");
+            System.out.println("succed in loading the new Al_resto database");
             System.out.println(all_Resto);
           
         } catch (IOException | ClassNotFoundException e) {
@@ -97,18 +109,15 @@ public class DataResto {
 	 * after all the operation
 	 * rewrite the All_Restaurant information into database
 	 * @param Restaurants
+	 * @return
 	 */
-	public static void Log_RestoData(ArrayList<Restaurant> Restaurants){
+	public static ArrayList<Restaurant> Log_RestoData(ArrayList<Restaurant> Restaurants){
 		//open the file, serialize the Restaurant_data
 		try {
             /**
              *  Serializing the object
              */
-			boolean delete=new File(filePath+"Restaurant_database.txt").delete();
-			System.out.println(delete);
             Serializer.serialize(Restaurants, filePath+"Restaurant_database.txt");
-			
-	        
             System.out.println("succed in loging the new Al_Restaurant database");
             System.out.println(Restaurants);
           
@@ -116,7 +125,7 @@ public class DataResto {
             e.printStackTrace();
             System.out.println("error: fail to log the new All_Restaurants database");
         }
-//		return Restaurants;
+		return Restaurants;
 	}
 	
 	/**
@@ -266,11 +275,6 @@ public class DataResto {
 	public static void print_RestoInfo(Restaurant curr_resto){
 		System.out.println(curr_resto.getMeals());
 		//print stock of ingredient
-	}
-	
-	public static void print_tout_menu(){
-		Load_RestoData();
-		
 	}
 	
 	
