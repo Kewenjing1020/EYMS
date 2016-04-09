@@ -2,15 +2,12 @@ package Restaurant;
 
 import java.io.Serializable;
 
-import FidelityCard.FidelityCardVisitor;
-import Operation.Visitable;
-
 /**
  * 
  * @author kewenjing
  *
  */
-public class Meal implements Serializable, Visitable{
+public class Meal implements Serializable{
 	
 	
 	/**
@@ -22,14 +19,12 @@ public class Meal implements Serializable, Visitable{
 	private String ingredient_detail;
 	private Double price;
 	private Double special_price;
-	
-	
-	
-	
-	
 	public Double getSpecial_price() {
 		return special_price;
 	}
+	
+	
+	
 	
 
 	@Override
@@ -37,6 +32,8 @@ public class Meal implements Serializable, Visitable{
 		return "Meal:" + dish_name + ", ingredient_detail=" + ingredient_detail + ", price=" + price
 				+ ", special_price=" + special_price + ", stock=" + stock + ", quantity need for client=" + quantity + "\n";
 	}
+
+
 
 
 
@@ -56,7 +53,7 @@ public class Meal implements Serializable, Visitable{
 	 */
 	public Meal() {
 		super();
-		this.price=(double) 0;
+		this.price=null;
 		this.quantity = 1;
 		this.special_price=(double) -1;
 	}	
@@ -131,13 +128,6 @@ public class Meal implements Serializable, Visitable{
 //	public void setQuantity(Integer quantity) {
 //		this.quantity = quantity;
 //	}
-
-
-	@Override
-	public void getPriceAccept(FidelityCardVisitor visitor) {
-		visitor.getPriceVisit(this);
-		
-	}
 	
 
 }

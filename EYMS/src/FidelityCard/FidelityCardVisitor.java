@@ -15,9 +15,6 @@ public abstract class FidelityCardVisitor implements Serializable {
 	
 	
 	private static final long serialVersionUID = -8410502348215707271L;
-	
-	public int point = 0;
-	
 	/**
 	 * Abstract getPriceVisit method 
 	 * use to get the price of a meal for a client 
