@@ -1,7 +1,8 @@
 package User;
 
 
-import java.util.ArrayList;  
+import java.util.ArrayList; 
+
 import FidelityCard.BasicFidelityCard;
 import FidelityCard.FidelityCardVisitor;
 import Operation.ClientObserver;
@@ -17,23 +18,41 @@ import Restaurant.Meal;
 
 public class Client extends User implements ClientObserver{
 	
+
+	//private String user_name;
+	//private String password;
+	//private String first_name;
+	//private String last_name;
+	
 	
 	private static final long serialVersionUID = 1861962790473617015L;
 	
+	//I have suppressed the attribute point because it is include to fidelity card
+	//furthermore all client doesn't have point, only those you have the PointFidelityCard
+	//private int points;
 	private Boolean authorization = false;
 	private String birthday = " ";
 	private FidelityCardVisitor fidelityCard;
 
+	public FidelityCardVisitor getFidelityCard() {
+		return fidelityCard;
+	}
+
+	public void setFidelityCard(FidelityCardVisitor fidelityCard) {
+		this.fidelityCard = fidelityCard;
+	}
+
+
+
 	private ArrayList<String> contacter_names;
 	private ArrayList<String> email;
 	private ArrayList<String> phone_number;
-	private ArrayList<String> adress;
+	private ArrayList<String> address;
 	private ArrayList<Meal> favorite_meals;
 	
 	/**
 	 * 
 	 */
-	@Override
 	public void update(ArrayList<String> ads) {
 		if(this.email != null){
 			for(String ad : ads){
@@ -45,9 +64,9 @@ public class Client extends User implements ClientObserver{
 				this.phone_number.add(ad);
 			}		
 		}
-		if(this.adress != null){
+		if(this.address != null){
 			for(String ad : ads){
-				this.adress.add(ad);
+				this.address.add(ad);
 			}		
 		}
 	}
@@ -64,7 +83,6 @@ public class Client extends User implements ClientObserver{
 		return price;
 	}
 	
-	
 	/**
 	 * toString method
 	 */
@@ -73,7 +91,7 @@ public class Client extends User implements ClientObserver{
 	public String toString() {
 		return "Customer [user_name=" + user_name + ", password=" + password + ", first_name=" + first_name
 				+ ", last_name=" + last_name + ", fidelityCard=" + fidelityCard + ", email=" + email + ", phone_number="
-				+ phone_number + ", adress=" + adress + ", favorite_meals=" + favorite_meals + "]";
+				+ phone_number + ", address=" + address + ", favorite_meals=" + favorite_meals + "]";
 	}
 
 
@@ -83,24 +101,13 @@ public class Client extends User implements ClientObserver{
 	 */
 	public Client() {
 		super();
-		this.authorization=true;
+		this.authorization= true;
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
 	}
 
-	/**
-	 * 
-	 * @param fidelityCard
-	 */
-	public Client(FidelityCardVisitor fidelityCard){
-		super();
-		this.fidelityCard = fidelityCard;
-		this.authorization=true;
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
-		this.fidelityCard = new BasicFidelityCard();
-	}
+
 
 	/**
 	 * @param user_name
@@ -112,13 +119,14 @@ public class Client extends User implements ClientObserver{
 		this.password = password;
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
-		this.adress = new ArrayList<String>();
-		this.authorization=true;
+		this.address = new ArrayList<String>();
+		this.authorization= true;
 		this.contacter_names=new ArrayList<String>();
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
 	}
+	
 	
 	
 	/**
@@ -135,7 +143,7 @@ public class Client extends User implements ClientObserver{
 		this.last_name = last_name;
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
-		this.adress = new ArrayList<String>();
+		this.address = new ArrayList<String>();
 		this.authorization=true;
 		this.contacter_names=new ArrayList<String>();
 		contacter_names.add(last_name+" "+first_name);
@@ -144,7 +152,6 @@ public class Client extends User implements ClientObserver{
 		this.fidelityCard = new BasicFidelityCard();
 		
 	}
-	
 	
 	/**
 	 * 
@@ -159,14 +166,24 @@ public class Client extends User implements ClientObserver{
 		this.birthday = birthday;
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
-		this.adress = new ArrayList<String>();
+		this.address = new ArrayList<String>();
 		this.authorization=true;
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
 	}
-
 	
+	/**
+	 * 
+	 * @param fidelityCard
+	 */
+	public Client(FidelityCardVisitor fidelityCard){
+		super();
+		this.fidelityCard = fidelityCard;
+		this.authorization=true;
+		this.login = new LoginClient();
+		this.register = new RegisterClient();
+	}
 	
 	public void addPoint(int points){
 		this.fidelityCard.point += points;		
@@ -180,10 +197,10 @@ public class Client extends User implements ClientObserver{
 		this.fidelityCard.point = points;
 	}
 	
-	/**
-	 * 
-	 * @param new_email
-	 */
+	public void associateCard (FidelityCardVisitor cardType){
+		this.fidelityCard=cardType;
+	}
+	
 	public void add_email(String new_email){
 		
 		this.email.add(new_email);	
@@ -193,8 +210,8 @@ public class Client extends User implements ClientObserver{
 		this.phone_number.add(new_phone_number);
 	}
 	
-	public void add_adress(String new_adress){
-		this.adress.add(new_adress);
+	public void add_address(String new_address){
+		this.address.add(new_address);
 	}
 	
 	public void add_favorite_meal(Meal meal){
@@ -238,11 +255,11 @@ public class Client extends User implements ClientObserver{
 	public void setPhone_number(ArrayList<String> phone_number) {
 		this.phone_number = phone_number;
 	}
-	public ArrayList<String> getAdress() {
-		return adress;
+	public ArrayList<String> getAddress() {
+		return address;
 	}
-	public void setAddress(ArrayList<String> adress) {
-		this.adress = adress;
+	public void setAddress(ArrayList<String> address) {
+		this.address = address;
 	}
 	
 
@@ -301,7 +318,14 @@ public class Client extends User implements ClientObserver{
 	}
 
 
+
 	
+
+
+
+	
+
+
 	
 	
 }

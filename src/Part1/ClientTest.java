@@ -59,7 +59,7 @@ public class ClientTest {
 			customer.add_phone_number(phone_number);
 			System.out.println("your address");
 			String address=typein.readLine();
-			customer.add_adress(address);
+			customer.add_address(address);
 			System.out.println("do you want receive general and/or person"
 					+ "alized (birthday special o↵ers, new meals alert, ...) promotions");
 			String ans=typein.readLine();

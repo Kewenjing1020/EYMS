@@ -1,4 +1,4 @@
-package Exceptions;
+package Restaurant;
 
 public class MealNotFoundException extends Exception {
 	/**

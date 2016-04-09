@@ -12,11 +12,6 @@ public class Personnel extends User implements Runnable{
 		// TODO Auto-generated constructor stub
 	}
 
-	/*
-	 * Attributes
-	 */
-	//All members of Personnel can't modify the meals
-	private Boolean authorization_to_modify_meal;
 
 	@Override
 	public void run() {

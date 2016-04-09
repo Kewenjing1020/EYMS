@@ -39,7 +39,7 @@ public class TestDataClient {
 		System.out.println(adrien);
 		adrien.register();
 		adrien.tryLogin();
-		adrien.add_adress("centrale paris");
+		adrien.add_address("centrale paris");
 		DataClient.Log_ClientData(clients);
 	}
 }

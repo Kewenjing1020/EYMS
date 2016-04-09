@@ -20,11 +20,8 @@ import User.*;
  *
  */
 public class DataClient{
-	
-	/*
-	 * Warning you have to change the following file path
-	 */
-	public static String filePath="/Users/Lucas/workspace/EYMS/";
+		
+	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();
@@ -145,6 +142,7 @@ public class DataClient{
 		try {
 			DataClient.tryLogin(all_clients, username, password);
 		} catch (ClientNotFound e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

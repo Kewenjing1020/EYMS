@@ -17,10 +17,8 @@ import Restaurant.Restaurant;
  *
  */
 public class DataResto {
-	 /*
-	  * Warning ! you have to change the following file path
-	  */
-	public static String filePath="/Users/Lucas/workspace/EYMS/";
+	
+	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args) throws IOException{
 		Restaurant res1=new Restaurant("CHEZ LILY");
@@ -30,7 +28,7 @@ public class DataResto {
 		Restaurants.add(res2);
 		System.out.println(Restaurants);
 		Log_RestoData(Restaurants);
-	
+		
 		
 		//register a new personnel
 		Personnel chef=new Personnel("chef", "imchef");

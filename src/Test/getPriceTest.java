@@ -2,10 +2,8 @@ package Test;
 
 import static org.junit.Assert.*;  
 
-import org.junit.After;
-import org.junit.AfterClass;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import FidelityCard.LotteryFidelityCard;
@@ -54,6 +52,7 @@ public class getPriceTest {
 	
 	@Test
 	public void pricePointFidelityCardWithMoreThanOneHundredPointsTest(){
+		
 		clientPoint.setPoint(100);
 		assertTrue("Point fidelity card with more than 100 points", clientPoint.getPrice(potatoes)==(double)90);
 	}

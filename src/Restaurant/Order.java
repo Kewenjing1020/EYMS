@@ -51,7 +51,7 @@ public class Order implements Serializable{
 	}
 
 
-
+	
 
 
 	public void selectMeal(Meal e,int qty){
@@ -103,6 +103,7 @@ public class Order implements Serializable{
 			Meal curr_meal=this.getMeal_list().get(i);
 			this.tot_price += curr_meal.getPrice()*curr_meal.quantity;	
 		}
+		
 	}
 
 	public String getPersonalization() {

@@ -27,10 +27,6 @@ public class Meal implements Serializable, Visitable{
 	
 	
 	
-	public Double getSpecial_price() {
-		return special_price;
-	}
-	
 
 	@Override
 	public String toString() {
@@ -39,6 +35,10 @@ public class Meal implements Serializable, Visitable{
 	}
 
 
+
+	public Double getSpecial_price() {
+		return special_price;
+	}
 
 	public void setSpecial_price(Double special_price) {
 		this.special_price = special_price;
@@ -56,7 +56,7 @@ public class Meal implements Serializable, Visitable{
 	 */
 	public Meal() {
 		super();
-		this.price=(double) 0;
+		this.price=null;
 		this.quantity = 1;
 		this.special_price=(double) -1;
 	}	
@@ -67,6 +67,8 @@ public class Meal implements Serializable, Visitable{
 	 * @param dish_name
 	 * @param ingredient_detail
 	 * @param price
+	 * @param stock
+	 * @param quantity
 	 */
 	public Meal(String dish_name, String ingredient_detail, Double price) {
 		super();
@@ -76,9 +78,7 @@ public class Meal implements Serializable, Visitable{
 		this.quantity = 1;
 		this.special_price=(double) -1;
 	}
-	
-	
-	
+
 	
 	public Meal(String dish_name, Double price, Double special_price) {
 		super();
@@ -86,8 +86,7 @@ public class Meal implements Serializable, Visitable{
 		this.price = price;
 		this.special_price = special_price;
 	}
-
-
+	
 	public Meal(String dish_name) {
 		// TODO Auto-generated constructor stub
 		super();
@@ -120,10 +119,7 @@ public class Meal implements Serializable, Visitable{
 		this.ingredient_detail = ingredient_detail;
 	}
 	public Double getPrice() {
-		if(this.special_price!=-1)
-			return special_price;
-		else
-			return price;
+		return price;
 	}
 	public void setPrice(Double price) {
 		this.price = price;
@@ -140,8 +136,11 @@ public class Meal implements Serializable, Visitable{
 //	public void setQuantity(Integer quantity) {
 //		this.quantity = quantity;
 //	}
-
-
+	
+	public void listIngredients (String mealName){
+		System.out.println(this.ingredient_detail);
+	}
+	
 	@Override
 	public void getPriceAccept(FidelityCardVisitor visitor) {
 		visitor.getPriceVisit(this);
