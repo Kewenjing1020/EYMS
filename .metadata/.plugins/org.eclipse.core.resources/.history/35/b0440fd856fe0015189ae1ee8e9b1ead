@@ -54,7 +54,10 @@ public class Order implements Serializable{
 
 
 
-	public void selectMeal(Meal e,int qty){
+
+
+
+	public void add_meal(Meal e,int qty){
 		if (e.stock>=qty){
 			e.quantity=qty;
 			e.stock-=qty;
@@ -74,7 +77,6 @@ public class Order implements Serializable{
 		meal_list.remove(e);
 	}
 	
-
 	
 	
 	//getter and setter

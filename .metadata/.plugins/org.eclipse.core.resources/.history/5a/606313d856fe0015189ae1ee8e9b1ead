@@ -52,8 +52,6 @@ public class TestDataRetsto {
 		DataResto.refresh_Data(res3, Restaurants);
 		System.out.println(Restaurants);
 		DataResto.Log_RestoData(Restaurants);
-		
-		res1.removeFromSpecialOffer("e");
 	
 	}
 }

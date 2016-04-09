@@ -129,9 +129,5 @@ public class Meal implements Serializable{
 //		this.quantity = quantity;
 //	}
 	
-	public void listIngredients (String mealName){
-		System.out.println(this.ingredient_detail);
-	}
-	
 
 }

@@ -38,10 +38,10 @@ public class TestOrder {
 		System.out.println(e2);
 		
 		Order order1=new Order("emma");
-		order1.selectMeal(e, 1);
+		order1.add_meal(e, 1);
 		System.out.println(e);
 		
-		order1.selectMeal(e2, 2);
+		order1.add_meal(e2, 2);
 		
 		System.out.println(e2.getPrice());
 		
@@ -54,6 +54,12 @@ public class TestOrder {
 		all_order.add(order1);
 		System.out.println(all_order);
 		DataOrder.Log_OrderData(all_order);
+//		try {
+//			Serializer.serialize(order1, DataClient.filePath+"Order_database.txt");
+//		} catch (IOException e3) {
+//			// TODO Auto-generated catch block
+//			e3.printStackTrace();
+//		}
 
 		
 	}
