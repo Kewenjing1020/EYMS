@@ -1,15 +1,15 @@
 package RestoChain;
 
-import java.util.ArrayList;
+import java.util.ArrayList;    
 
-import DataBase.DataClient;
-import DataBase.DataResto;
-import Operation.Observable;
-import Restaurant.Meal;
-import Restaurant.Restaurant;
-import User.Client;
+import DataBase.DataClient; 
+import DataBase.DataResto; 
+import Operation.ClientObservable; 
+import Restaurant.Meal; 
+import Restaurant.Restaurant; 
+import User.Client; 
 
-public class RestoChain extends Thread implements Observable{
+public class RestoChain implements ClientObservable{
 	
 	private ArrayList<Client> allClients;
 	private ArrayList<Restaurant> allRestaurant;
@@ -55,7 +55,7 @@ public class RestoChain extends Thread implements Observable{
 	
 
 	/**
-	 * Method to notify special price to any client who want to receive them
+	 * Method to notify special prices to any client who give authorization to receive them
 	 */
 	@Override
 	public void notifyAd() {
@@ -82,7 +82,7 @@ public class RestoChain extends Thread implements Observable{
 	 */
 	@Override
 	public void notifyBirthday() {
-		//We send special offer to the client whom it's the birthday
+		//We send special offer to the clients whom it's the birthday
 		for(Client client : allClients){
 			if(client.getBirthday().contains(date.subSequence(0, 4))){
 				ArrayList<String> ads = new ArrayList<String>();

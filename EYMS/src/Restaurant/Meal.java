@@ -1,61 +1,34 @@
 package Restaurant;
 
-import FidelityCard.FidelityCardVisitor;
+import java.io.Serializable;
 
-public class Meal implements ProductVisitable{
+import FidelityCard.FidelityCardVisitor;
+import Operation.Visitable;
+
+/**
+ * 
+ * @author kewenjing
+ *
+ */
+public class Meal implements Serializable, Visitable{
 	
 	
-	public static void main(String [] args){
-		Meal e = new Meal();
-		e.setDish_name("Mixed garden salad");
-		e.setIngredient_detail("drizzled with your choice of our homemade dressing served with bread");
-		e.setPrice(2.2);
-		e.setSpecial_price(1.5);
-		e.setStock(100);
-		System.out.println(e);
-		
-		Meal e1 = new Meal("Spaghetti Bolognese"," with a lean meat sauce accompanied by grated parmesan cheese",3.2);
-		System.out.println(e1.getPrice());
-		
-		
-		Meal e2 = new Meal();
-		e2.setDish_name("Salmon Steak");
-		e2.setIngredient_detail("baked with lemon grass herb butter and tomato-mussel coulis");
-		e2.setPrice(5.0);
-		e2.setStock(100);
-		System.out.println(e2);
-		
-		Order order1=new Order();
-		order1.add_meal(e, 1);
-		System.out.println(e);
-		
-		order1.add_meal(e2, 2);
-		
-		System.out.println(e2.getPrice());
-		
-		order1.check();
-		System.out.println(order1);
-		System.out.println(order1.getTot_price());
-		//System.out.println(e);
-		
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private String dish_name;
 	private String ingredient_detail;
 	private Double price;
 	private Double special_price;
 	
+	
+	
+	
+	
 	public Double getSpecial_price() {
 		return special_price;
-	}
-	
-	/**
-	 * Accept method use to get the price of the meal depending 
-	 * on the fidelity card of a client
-	 */
-	@Override
-	public int accept(FidelityCardVisitor visitor) {
-		return visitor.getPriceVisit(this);
 	}
 	
 
@@ -64,8 +37,6 @@ public class Meal implements ProductVisitable{
 		return "Meal:" + dish_name + ", ingredient_detail=" + ingredient_detail + ", price=" + price
 				+ ", special_price=" + special_price + ", stock=" + stock + ", quantity need for client=" + quantity + "\n";
 	}
-
-
 
 
 
@@ -80,13 +51,12 @@ public class Meal implements ProductVisitable{
 	protected Integer stock;
 	protected Integer quantity;
 	/**
-	 * @param price 
 	 * @param dish_name
 	 * @param ingredient_detail
 	 */
-	public Meal(Double price) {
+	public Meal() {
 		super();
-		this.price = price;
+		this.price=(double) 0;
 		this.quantity = 1;
 		this.special_price=(double) -1;
 	}	
@@ -109,7 +79,11 @@ public class Meal implements ProductVisitable{
 		this.special_price=(double) -1;
 	}
 	
-public Meal() {
+	public Meal(String dish_name) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.dish_name = dish_name;
+		this.quantity = 1;
 		this.special_price=(double) -1;
 	}
 
@@ -158,6 +132,12 @@ public Meal() {
 //		this.quantity = quantity;
 //	}
 
+
+	@Override
+	public void getPriceAccept(FidelityCardVisitor visitor) {
+		visitor.getPriceVisit(this);
+		
+	}
 	
-	
+
 }

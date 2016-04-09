@@ -83,7 +83,9 @@ public class Meal implements Serializable{
 		this.quantity = 1;
 		this.special_price=(double) -1;
 	}
-
+	
+	
+	
 
 
 
@@ -128,6 +130,12 @@ public class Meal implements Serializable{
 //	public void setQuantity(Integer quantity) {
 //		this.quantity = quantity;
 //	}
+	public void currentMeal(){
+		System.out.println(this.dish_name);
+	}
 	
+	public void listIngredients (String mealName){
+		System.out.println(this.ingredient_detail);
+	}
 
 }

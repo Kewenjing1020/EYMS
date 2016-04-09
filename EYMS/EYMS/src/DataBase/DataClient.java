@@ -21,7 +21,7 @@ import User.*;
  */
 public class DataClient{
 		
-	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
+	//public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();
@@ -54,7 +54,7 @@ public class DataClient{
             /**
              * Deserializing the object
              */
-            clients = (ArrayList<Client>) Serializer.deserialize(filePath+"Client_database.txt");
+            clients = (ArrayList<Client>) Serializer.deserialize("Client_database.txt");
             System.out.println("succed in loading the new All_client database");
             System.out.println(clients);
           
@@ -78,8 +78,8 @@ public class DataClient{
             /**
              *  Serializing the object
              */
-			new File(filePath+"Client_database.txt").delete();
-            Serializer.serialize(clients, filePath+"Client_database.txt");
+			new File("Client_database.txt").delete();
+            Serializer.serialize(clients, "Client_database.txt");
             System.out.println("succed in loging the new All_clients database");
             System.out.println(clients);
           
@@ -172,12 +172,6 @@ public class DataClient{
 			while(client.getUser_name().equals(client_old.getUser_name()) && client.getPassword().equals(client_old.getPassword())){
 				
 				all_clients.set(i, client);
-				
-//				client_old.setAddress(client.getAddress());
-//				client_old.setEmail(client.getEmail());
-//				client_old.setPhone_number(client.getPhone_number());
-//				client_old.setFavorite_meals(client.getFavorite_meals());
-//				client_old.setContacter_names(client.getContacter_names());
 				System.out.println("succed in load client's new info");
 				return all_clients;
 			}

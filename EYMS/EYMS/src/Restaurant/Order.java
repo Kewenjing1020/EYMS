@@ -27,9 +27,6 @@ public class Order implements Serializable{
 	
 
 
-
-
-
 	/**
 	 * @param meal_list
 	 * @param tot_price
@@ -57,7 +54,7 @@ public class Order implements Serializable{
 
 
 
-	public void add_meal(Meal e,int qty){
+	public void selectMeal(Meal e,int qty){
 		if (e.stock>=qty){
 			e.quantity=qty;
 			e.stock-=qty;
@@ -100,6 +97,10 @@ public class Order implements Serializable{
 	/**
 	 * check out, calculate the total price
 	 */
+	public void showMeal(){
+		System.out.println(this.meal_list);
+	}
+	
 	public void check(){
 		for(int i=0;i<this.getMeal_list().size();i++){
 			Meal curr_meal=this.getMeal_list().get(i);
@@ -111,8 +112,8 @@ public class Order implements Serializable{
 		return personalization;
 	}
 
-	public void setPersonalization(String personalization) {
-		this.personalization = personalization;
+	public void personalizeMeal(String personalization_info) {
+		this.personalization = personalization_info;
 	}
 
 	public Delivery getDelivery_info() {

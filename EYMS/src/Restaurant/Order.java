@@ -1,37 +1,58 @@
 package Restaurant;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Part1.Delivery;
 
-public class Order{
+/**
+ * 
+ * @author kewenjing
+ *
+ */
+public class Order implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8776393638656209850L;
+	
 	
 	private ArrayList<Meal> meal_list;
 	private Double tot_price;
 	//leave the message for the special demand of the meals
 	private String personalization;
 	private Delivery delivery_info;
+	private String client_username;
 	
-	
+
+
+
+
+
 	/**
 	 * @param meal_list
 	 * @param tot_price
 	 */
-	public Order() {
+	public Order(String client_username) {
 		super();
+		this.client_username=client_username;
 		this.meal_list = new ArrayList<Meal>();
 		this.tot_price=(double) 0;
 		this.personalization=null;
 	}
 
 	
-	
-	
+
 	@Override
 	public String toString() {
-		return "Order: \n meal_list=" + meal_list + "\n tot_price=" + tot_price + "\n personalization=" + personalization
-				+ "\n delivery_info=" + delivery_info + "";
+		return "Order [client_username=" + client_username +", meal_list=" + meal_list + ", tot_price=" + tot_price + ", personalization=" + personalization
+				+ ", delivery_info=" + delivery_info + "]\n";
 	}
+
+
+
+
 
 
 
@@ -76,7 +97,9 @@ public class Order{
 		this.tot_price=tot_price;
 	}
 	
-	
+	/**
+	 * check out, calculate the total price
+	 */
 	public void check(){
 		for(int i=0;i<this.getMeal_list().size();i++){
 			Meal curr_meal=this.getMeal_list().get(i);
@@ -99,7 +122,12 @@ public class Order{
 	public void setDelivery_info(Delivery delivery_info) {
 		this.delivery_info = delivery_info;
 	}
-
+	public String getClient_username() {
+		return client_username;
+	}
+	public void setClient_username(String client_username) {
+		this.client_username = client_username;
+	}
 	
 	
 }

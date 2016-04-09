@@ -16,8 +16,8 @@ public class RegisterUser {
 		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
 
 		String answer1 = typein.readLine();
-		String user_name = null;
-		String password = null;
+		String user_name = "";
+		String password = "";
 		
 		/*
 		 * Register a new user

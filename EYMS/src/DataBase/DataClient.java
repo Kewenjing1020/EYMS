@@ -1,9 +1,12 @@
 package DataBase;
 
-import java.io.IOException;  
+import java.io.File;
+import java.io.IOException; 
+
 import java.util.ArrayList;
+
 import Exceptions.ClientNotFound;
-import User.Client;
+import User.*;
 
 /**
  * All the operation based on the Client_database
@@ -18,7 +21,7 @@ import User.Client;
  */
 public class DataClient{
 		
-	public static String filePath="C:/Users/Lucas/Documents/GitHub/EYMS/EYMS";
+	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();
@@ -45,7 +48,7 @@ public class DataClient{
 	 */
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Client> Load_ClientData(){
-		ArrayList<Client> clients = new ArrayList<Client>();
+		ArrayList<Client> clients=new ArrayList<Client>();
 		//open the file, deserialize the client_data
 		try {
             /**
@@ -75,6 +78,7 @@ public class DataClient{
             /**
              *  Serializing the object
              */
+			new File(filePath+"Client_database.txt").delete();
             Serializer.serialize(clients, filePath+"Client_database.txt");
             System.out.println("succed in loging the new All_clients database");
             System.out.println(clients);
@@ -95,7 +99,7 @@ public class DataClient{
 	public static Boolean verify(ArrayList<Client> all_clients, String username){
 		for(int i=0; i<all_clients.size();i++ ){
 			Client client=(Client)all_clients.get(i);
-			if(client.getUsername().equals(username)){
+			if(client.getUser_name().equals(username)){
 				System.out.println("this username is already used.");
 				return false;
 			}
@@ -116,7 +120,7 @@ public class DataClient{
 	public static void tryLogin(ArrayList<Client> all_clients, String username, String password) throws ClientNotFound{
 		for(int i=0; i<all_clients.size();i++ ){
 			Client client=(Client)all_clients.get(i);
-			if(client.getUsername().equals(username) && client.getPassword().equals(password)){
+			if(client.getUser_name().equals(username) && client.getPassword().equals(password)){
 				System.out.println("Welcome back!"+username);
 				return ;
 			}
@@ -133,7 +137,7 @@ public class DataClient{
 	 * @return
 	 */
 	
-	public static void tryLogin(String username, String password) {
+	public static void login(String username, String password) {
 		ArrayList<Client> all_clients = DataClient.Load_ClientData();
 		try {
 			DataClient.tryLogin(all_clients, username, password);
@@ -165,7 +169,7 @@ public class DataClient{
 	public static ArrayList<Client> refresh_clientdata(Client client, ArrayList<Client> all_clients){
 		for(int i=0; i<all_clients.size();i++ ){
 			Client client_old=(Client)all_clients.get(i);
-			while(client.getUsername().equals(client_old.getUsername()) && client.getPassword().equals(client_old.getPassword())){
+			while(client.getUser_name().equals(client_old.getUser_name()) && client.getPassword().equals(client_old.getPassword())){
 				
 				all_clients.set(i, client);
 				

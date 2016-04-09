@@ -118,10 +118,10 @@ public class Client extends User implements Observer{
 		
 	}
 	
-	/**
-	 * 
-	 * @param new_email
-	 */
+	public void associateCard (FidelityCard cardType){
+		this.fidelityCard=cardType;
+	}
+
 	public void add_email(String new_email){
 		
 		this.email.add(new_email);	

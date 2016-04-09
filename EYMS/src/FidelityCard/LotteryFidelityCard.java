@@ -17,6 +17,14 @@ public class LotteryFidelityCard extends FidelityCardVisitor{
 	
 	@Override
 	public Double getPriceVisit(Meal meal) {
-		return meal.getPrice();
+		Double price = meal.getPrice();
+		/*
+		 * A client with a lottery fidelity card 
+		 * can gain his meal for free each day
+		 */
+		if (Math.random() < 0.05)
+			price = (double) 0;
+		return price;
 	}
+
 }

@@ -17,7 +17,13 @@ public class BasicFidelityCard extends FidelityCardVisitor{
 
 	@Override
 	public Double getPriceVisit(Meal meal) {
-		return meal.getPrice();
+		Double price = meal.getPrice();
+		/**
+		 * A client with a basic fidelity card can have access to special offer
+		 */
+		if (meal.getSpecial_price() != -1)
+			price = meal.getSpecial_price();
+		return price;
 	}
 	
 	

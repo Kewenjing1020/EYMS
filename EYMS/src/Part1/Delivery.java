@@ -1,17 +1,21 @@
 package Part1;
 
-import java.util.Arrays; 
+import java.util.Arrays;
 
 import Restaurant.Order;
 import User.Client;
 
+/**
+ * 
+ * @author kewenjing
+ *
+ */
 public class Delivery {
-	private Order order;
-	private Client client;
+
 	private String contactname;
 	private String phonenumber;
 	private String adress;
-	private String[] delivery_info;
+//	private String[] delivery_info;
 	/**
 	 * @param order
 	 * @param client
@@ -20,38 +24,23 @@ public class Delivery {
 	 * @param adress
 	 * @param delivery_info
 	 */
-	public Delivery(Order order, Client client, String contactname, String phonenumber, String adress) {
+	public Delivery( String contactname, String phonenumber, String adress) {
 		super();
-		this.order = order;
-		this.client = client;
 		this.contactname = contactname;
 		this.phonenumber = phonenumber;
 		this.adress = adress;
-		this.delivery_info = new String[3];
+//		this.delivery_info = new String[3];
 	}
 	
 	
 	
 	@Override
 	public String toString() {
-		return "Delivery [order=" + order + ", client=" + client.getFirstName()+" "+client.getLastName() + ", delivery_info=" + Arrays.toString(delivery_info)
-				+ "]";
+		return "Delivery [contactname=" + contactname + ", phonenumber=" + phonenumber + ", adress=" + adress + "]";
 	}
 
 
 
-	public Order getOrder() {
-		return order;
-	}
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-	public Client getClient() {
-		return client;
-	}
-	public void setClient(Client client) {
-		this.client = client;
-	}
 	public String getContactname() {
 		return contactname;
 	}
@@ -70,14 +59,14 @@ public class Delivery {
 	public void setAdress(String adress) {
 		this.adress = adress;
 	}
-	public String[] getDelivery_info() {
-		return delivery_info;
-	}
-	public void setDelivery_info(String[] delivery_info) {
-		this.delivery_info[0]=this.contactname ;
-		this.delivery_info[1]=this.phonenumber ;
-		this.delivery_info[2]=this.adress;
-	}
+//	public String[] getDelivery_info() {
+//		return delivery_info;
+//	}
+//	public void setDelivery_info(String[] delivery_info) {
+//		this.delivery_info[0]=this.contactname ;
+//		this.delivery_info[1]=this.phonenumber ;
+//		this.delivery_info[2]=this.adress;
+//	}
 	
 	
 	

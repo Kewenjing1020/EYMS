@@ -1,5 +1,8 @@
 package Restaurant;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -22,7 +25,6 @@ public class Restaurant implements Serializable{
 	private ArrayList<Meal> meals;
 	
 	
-
 
 	@Override
 	public String toString() {
@@ -89,4 +91,55 @@ public class Restaurant implements Serializable{
 			System.out.println("succed in add this meal");
 		}
 	}
+	
+	public void putInSpecialOffer(String mealName, Double price){
+		for(int i=0; i<this.meals.size();i++){
+			if(this.getMeals().get(i).getDish_name().equals(mealName)){
+				this.getMeals().get(i).setSpecial_price(price);
+				
+			}
+		}
+		
+	}
+	
+	public Meal findMealCorrespond(String mealName) throws MealNotFoundException{
+		Meal e =new Meal();
+		try{
+			int count =0;
+			for(int i=0; i<this.meals.size();i++){
+				if(this.getMeals().get(i).getDish_name().equals(mealName)){
+					e=this.getMeals().get(i);
+					count++;
+					break;
+				}
+			}
+			if (count==0){
+				throw new MealNotFoundException();
+			}	
+		}finally{
+			
+		}
+		return e;
+		
+	}
+	
+	public void removeFromSpecialOffer (String mealName) throws IOException{
+		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
+		Meal e=new Meal();
+		try{
+			e=findMealCorrespond(mealName);
+			
+		}catch(MealNotFoundException excpt){
+			System.out.println("please type meal name");
+			mealName = typein.readLine();
+			removeFromSpecialOffer(mealName);
+		}
+		finally{
+			e.setSpecial_price((double) -1);
+		}
+
+	}
+	
+	
+	
 }
