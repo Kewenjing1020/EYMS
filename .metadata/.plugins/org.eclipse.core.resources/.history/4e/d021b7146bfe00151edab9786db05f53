@@ -109,8 +109,8 @@ public class Order implements Serializable{
 		return personalization;
 	}
 
-	public void personalizeMeal(String mealName,String personalization) {
-		this.personalization = mealName+":"+personalization+"\n";
+	public void setPersonalization(String personalization) {
+		this.personalization = personalization;
 	}
 
 	public Delivery getDelivery_info() {

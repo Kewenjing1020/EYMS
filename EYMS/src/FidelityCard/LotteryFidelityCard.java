@@ -1,6 +1,8 @@
 package FidelityCard;
 
-public class LotteryFidelityCard extends FidelityCard{
+import Restaurant.Meal;
+
+public class LotteryFidelityCard extends FidelityCardVisitor{
 
 
 	/**
@@ -13,5 +15,16 @@ public class LotteryFidelityCard extends FidelityCard{
 		return "LotteryFidelityCard";
 	}
 	
+	@Override
+	public Double getPriceVisit(Meal meal) {
+		Double price = meal.getPrice();
+		/*
+		 * A client with a lottery fidelity card 
+		 * can gain his meal for free each day
+		 */
+		if (Math.random() < 0.05)
+			price = (double) 0;
+		return price;
+	}
 
 }
