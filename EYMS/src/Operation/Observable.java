@@ -1,8 +1,10 @@
 package Operation;
 
 public interface Observable {
+
+	public void registerObserver(Observer observer);
 	
-	public void notifyAd();
+	public void removeObserver(Observer observer);
 	
-	public void notifyBirthday();
+	public void notifyObserver();
 }

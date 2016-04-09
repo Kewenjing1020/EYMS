@@ -1,8 +1,6 @@
 package FidelityCard;
 
-import Restaurant.Meal;
-
-public class PointFidelityCard extends FidelityCardVisitor{
+public class PointFidelityCard extends FidelityCard{
 	
 	/**
 	 * 
@@ -15,11 +13,4 @@ public class PointFidelityCard extends FidelityCardVisitor{
 		return "PointFidelityCard [point=" + point + "]";
 	}
 
-	@Override
-	public Double getPriceVisit(Meal meal) {
-		Double price = meal.getPrice();
-		if (this.point >= 100)
-			price *= 0.9;
-		return price;
-	}
 }
